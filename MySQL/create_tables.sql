@@ -3,7 +3,7 @@ CREATE TABLE users
 	ID INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	username VARCHAR(20) UNIQUE,
 	password VARCHAR(40),
-	e-mail VARCHAR(50),
+	email VARCHAR(50),
 	userlevel INT(1)
 );
 
