@@ -7,7 +7,7 @@ CREATE TABLE users
 	userlevel INT(1)
 );
 
-CREATE TABLE reservatios
+CREATE TABLE reservations
 (
 	ID INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
 	start_time DATETIME,
