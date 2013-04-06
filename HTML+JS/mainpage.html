@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Roomservice</title>
+		<style type="text/css">
+			@import url(mainpagestyle.css);
+		</style>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jquery.form.js"></script>
+		<script src="js/mainpage.js"></script>		
+	</head>	
+	<body>
+	<div id="wrap">
+	
+		<div id="btn_panel">			
+			<table class="btn_table">
+				<tr>
+				<td><div class="panel_button" id="login"><a href="#">Login</a></div></td>
+				<td><div class="panel_button" id="register"><a href="#">Register</a></div></td>
+				</tr>
+			</table>
+		</div>
+	
+		<div id="log_panel" style="display:none">
+						
+				<table id="logintable" border="0" align="center" cellpadding="0" cellspacing="1">
+				<tr>
+				<td><img class="pointerlogin" src="images/close.png" onclick="hide_log();"/></td>
+				</tr>
+				<tr>
+				<form id="logForm" name="loginform" method="post" action="php/login.php">
+				<td>
+				<table border="0" cellpadding="3" cellspacing="1">
+				<tr>
+				<td colspan="3">Login</td>
+				</tr>
+				<tr>
+				<td width="78">Username</td>
+				<td width="6">:</td>
+				<td><input name="username" type="text" id="username"></td>
+				</tr>
+				<tr>
+				<td>Salasana</td>
+				<td>:</td>
+				<td><input name="password" type="password" id="password"></td>
+				</tr>
+				<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>	
+				<td><input type="submit" name="Submit" value="Login"></td>
+				</tr>
+				</table>
+				</td>
+				</form>
+				</tr>
+				</table>
+		</div>
+		
+		<div id="reg_panel" style="display:none">
+			<table id="registertable" border="0" align="center" cellpadding="0" cellspacing="1">
+				<tr>
+				<form name="regForm" id="regForm" method="POST" action="register.php">
+				<td>
+				<table border="0" cellpadding="3" cellspacing="1">
+				<tr>
+				<td colspan="3"><p class="reg">Register</p></td>
+				<td><img class="pointer" src="images/close.png" onclick="hide_reg();"/></td>
+				</tr>
+				<tr>
+				<td width="78">Username</td>
+				<td width="6">:</td>
+				<td><input name="username1" type="text" id="username1" class="inputs"></td>
+				<td width="145"><label class="error" for="username1" id="name_error">This field is required</label></td>
+				</tr>
+				<tr>
+				<td>Password</td>
+				<td>:</td>
+				<td><input name="password" type="password" id="password1" class="inputs"></td>
+				<td width="145"><label class="error" for="username1" id="password1_error">This field is required</label></td>
+				</tr>
+				<tr>
+				<td>Password</td>
+				<td>:</td>
+				<td><input name="password" type="password" id="password2" class="inputs"></td>
+				<td width="145"><label class="error" for="username1" id="password2_error">This field is required</label></td>
+				</tr>
+				<tr>
+				<td>Email</td>
+				<td>:</td>
+				<td><input name="email" type="text" id="email" class="inputs"></td>
+				<td width="145"><label class="error" for="username1" id="email_error">This field is required</label></td>
+				</tr>
+				<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>	
+				<td><input class="regButton" type="submit" id="submitReg" value="Register"></td>
+				</tr>
+				</table>
+				</td>
+				</form>
+				</tr>
+				</table>	
+		</div>
+	</div>	
+	
+	</body>
+</html>

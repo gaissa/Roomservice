@@ -1,0 +1,133 @@
+body {
+	background: #202020;
+	text-align: center;
+	margin: 0px;
+}
+
+#wrap {
+	margin-left: auto;
+	margin-right: auto;
+	width: 1200px;
+	text-align: center;	
+	/*border: 1px solid white;*/
+}
+
+#log_panel {
+	width: 400px;
+	position: relative;
+	top: 120px;
+	height: 0px;
+	margin-top:auto;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 10;
+	overflow: hidden;
+	text-align: left;
+	background: black;
+	filter: alpha(opacity=70);
+	-moz-opacity:0.70;
+	-khtml-opacity: 0.70;
+	opacity: 0.70;
+	background: #202020;
+	font-family: Calibri, Helvetica, sans-serif;
+	Color: #FFFFFF;
+}
+
+#reg_panel {
+	width: 600px;
+	position: relative;
+	top: 100px;
+	height: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 10;
+	overflow: hidden;
+	text-align: left;
+	background: black;
+	filter: alpha(opacity=70);
+	-moz-opacity:0.70;
+	-khtml-opacity: 0.70;
+	opacity: 0.70;
+	font-family: Calibri, Helvetica, sans-serif;
+	Color: #FFFFFF;
+	background: #202020;
+	border: 0px solid white;
+}
+
+#registertable {
+	margin-left: 150px;
+	margin-right: auto;
+}
+
+#message { 	
+	position:relative;
+	width: 250px;
+	left: 220px; 
+}
+			
+#checkmark { 
+	position: relative;
+	top: -73px;
+	left: -65px;
+}
+
+.inputs { 
+	margin-left: 40px;
+}
+
+.regButton { 
+	margin-left: 130px;	 
+	margin-top: 20px;
+}
+
+p.reg {
+	margin-bottom: 20px;
+}
+
+.pointer {
+	cursor:pointer;
+	float:left;
+}
+
+.pointerlogin {
+	cursor:pointer;
+	float:right;
+}
+
+.logintable {
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+	background: #202020;
+}
+
+.btn_table {
+	border: 0px solid #FFFFFF;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+}
+
+.panel_button {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 1px;
+    width: 173px;
+    height: 54px;
+    cursor: pointer;
+}
+
+.panel_button a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    top: 5px;
+    left: 5px;
+    font-family: Calibri, Helvetica, sans-serif;
+}
+.panel_button a:hover {
+	color: #999999;
+}
