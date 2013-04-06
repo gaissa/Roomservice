@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<month number="4">
+  <week number="14">
+    <day number="25" day="Monday"/>
+    <day number="26" day="Tuesday"/>
+    <day number="27" day="Wednesday"/>
+    <day number="28" day="Thursday"/>
+    <day number="29" day="Friday"/>
+    <day number="30" day="Saturday"/>
+    <day number="31" day="Sunday"/>
+  </week>
+  <week number="15">
+    <day number="1" day="Monday"/>
+    <day number="2" day="Tuesday"/>
+    <day number="3" day="Wednesday"/>
+    <day number="4" day="Thursday"/>
+    <day number="5" day="Friday"/>
+    <day number="6" day="Saturday" today="true"/>
+    <day number="7" day="Sunday"/>
+  </week>
+  <week number="16">
+    <day number="8" day="Monday"/>
+    <day number="9" day="Tuesday"/>
+    <day number="10" day="Wednesday"/>
+    <day number="11" day="Thursday"/>
+    <day number="12" day="Friday"/>
+    <day number="13" day="Saturday"/>
+    <day number="14" day="Sunday"/>
+  </week>
+  <week number="17">
+    <day number="15" day="Monday"/>
+    <day number="16" day="Tuesday"/>
+    <day number="17" day="Wednesday"/>
+    <day number="18" day="Thursday"/>
+    <day number="19" day="Friday"/>
+    <day number="20" day="Saturday"/>
+    <day number="21" day="Sunday"/>
+  </week>
+  <week number="18">
+    <day number="22" day="Monday"/>
+    <day number="23" day="Tuesday"/>
+    <day number="24" day="Wednesday"/>
+    <day number="25" day="Thursday"/>
+    <day number="26" day="Friday"/>
+    <day number="27" day="Saturday"/>
+    <day number="28" day="Sunday"/>
+  </week>
+  <week number="19">
+    <day number="29" day="Monday"/>
+    <day number="30" day="Tuesday"/>
+    <day number="1" day="Wednesday"/>
+    <day number="2" day="Thursday"/>
+    <day number="3" day="Friday"/>
+    <day number="4" day="Saturday"/>
+    <day number="5" day="Sunday"/>
+  </week>
+</month>
