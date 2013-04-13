@@ -13,7 +13,7 @@ if(!isset($_SESSION["logged_in"])) {
 <head>
   <title>Varausjärjestelmä</title>
 	<meta http-equiv="Content-Type" content="xhtml+xml; charset=utf-8" />
-		<link href="style1.css" rel="stylesheet" />
+		<link href="../style1.css" rel="stylesheet" />
 </head>
 <body>
 

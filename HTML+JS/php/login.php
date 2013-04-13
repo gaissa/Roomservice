@@ -10,7 +10,7 @@ try {
 	$db = new PDO("mysql:host=$db_host;dbname=$db_name;charset=UTF-8", "root", "$db_pass", array (PDO::ATTR_EMULATE_PREPARES => false,
 	PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 	
-	validateData($db, $usernm, $passwd);
+	validateData($db, $usernm, $sha1pass);
 	
 } catch (PDOException $e) {
 	echo $e->getMessage();

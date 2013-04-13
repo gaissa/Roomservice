@@ -1,5 +1,6 @@
 body {
-	background: #202020;
+	background-image:url('images/debut_dark.png');
+	background-repeat: repeat;
 	text-align: center;
 	margin: 0px;
 }
@@ -8,8 +9,9 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	width: 1200px;
+	height:400px;
 	text-align: center;	
-	/*border: 1px solid white;*/
+	border: 0px solid white;
 }
 
 #log_panel {
@@ -23,14 +25,9 @@ body {
 	z-index: 10;
 	overflow: hidden;
 	text-align: left;
-	background: black;
-	filter: alpha(opacity=70);
-	-moz-opacity:0.70;
-	-khtml-opacity: 0.70;
-	opacity: 0.70;
-	background: #202020;
 	font-family: Calibri, Helvetica, sans-serif;
 	Color: #FFFFFF;
+	border: 0px solid white;
 }
 
 #reg_panel {
@@ -40,18 +37,25 @@ body {
 	height: 0px;
 	margin-left: auto;
 	margin-right: auto;
+	overflow: hidden;
+	text-align: left;
+	font-family: Calibri, Helvetica, sans-serif;
+	Color: #FFFFFF;
+	border: 0px solid white;
+}
+
+.reg_message {
+	width: 600px;
+	position: relative;
+	top: 100px;
+	height: 400px;
+	margin-left: auto;
+	margin-right: auto;
 	z-index: 10;
 	overflow: hidden;
 	text-align: left;
-	background: black;
-	filter: alpha(opacity=70);
-	-moz-opacity:0.70;
-	-khtml-opacity: 0.70;
-	opacity: 0.70;
 	font-family: Calibri, Helvetica, sans-serif;
 	Color: #FFFFFF;
-	background: #202020;
-	border: 0px solid white;
 }
 
 #registertable {
@@ -71,12 +75,18 @@ body {
 	left: -65px;
 }
 
+.error {
+	font-family: Calibri, Helvetica, sans-serif;
+	font-size: 12px;
+	color:red;
+}
+
 .inputs { 
-	margin-left: 40px;
+	width:150px;
 }
 
 .regButton { 
-	margin-left: 130px;	 
+	margin-left: 90px;	 
 	margin-top: 20px;
 }
 

@@ -5,9 +5,9 @@
 		<style type="text/css">
 			@import url(mainpagestyle.css);
 		</style>
+		<script src="js/sha1.js"></script>	
 		<script src="js/jquery-1.9.1.min.js"></script>
-		<script src="js/jquery.form.js"></script>
-		<script src="js/mainpage.js"></script>		
+		<script src="js/mainpage.js"></script>					
 	</head>	
 	<body>
 	<div id="wrap">
@@ -20,10 +20,8 @@
 				</tr>
 			</table>
 		</div>
-	
-		<div id="log_panel" style="display:none">
-						
-				<table id="logintable" border="0" align="center" cellpadding="0" cellspacing="1">
+		<div id="log_panel">
+<table id="logintable" border="0" align="center" cellpadding="0" cellspacing="1">
 				<tr>
 				<td><img class="pointerlogin" src="images/close.png" onclick="hide_log();"/></td>
 				</tr>
@@ -37,12 +35,12 @@
 				<tr>
 				<td width="78">Username</td>
 				<td width="6">:</td>
-				<td><input name="username" type="text" id="username"></td>
+				<td><input class="inputs" name="username" type="text" id="username"></td>
 				</tr>
 				<tr>
-				<td>Salasana</td>
+				<td>Password</td>
 				<td>:</td>
-				<td><input name="password" type="password" id="password"></td>
+				<td><input class="inputs" name="password" type="password" id="password"></td>
 				</tr>
 				<tr>
 				<td>&nbsp;</td>
@@ -54,12 +52,11 @@
 				</form>
 				</tr>
 				</table>
-		</div>
-		
-		<div id="reg_panel" style="display:none">
-			<table id="registertable" border="0" align="center" cellpadding="0" cellspacing="1">
+</div>
+<div id="reg_panel">
+<table id="registertable" border="0" align="center" cellpadding="0" cellspacing="1">
 				<tr>
-				<form name="regForm" id="regForm" method="POST" action="register.php">
+				<form id="registerForm" name="registerForm" method="POST">
 				<td>
 				<table border="0" cellpadding="3" cellspacing="1">
 				<tr>
@@ -70,25 +67,25 @@
 				<td width="78">Username</td>
 				<td width="6">:</td>
 				<td><input name="username1" type="text" id="username1" class="inputs"></td>
-				<td width="145"><label class="error" for="username1" id="name_error">This field is required</label></td>
+				<td width="200"><label class="error" for="username1" id="name_error"></label></td>
 				</tr>
 				<tr>
 				<td>Password</td>
 				<td>:</td>
-				<td><input name="password" type="password" id="password1" class="inputs"></td>
-				<td width="145"><label class="error" for="username1" id="password1_error">This field is required</label></td>
+				<td><input name="password1" type="password" id="password1"class="inputs"></td>
+				<td width="200"><label class="error" for="password" id="password_error1"></label></td>
 				</tr>
 				<tr>
 				<td>Password</td>
 				<td>:</td>
-				<td><input name="password" type="password" id="password2" class="inputs"></td>
-				<td width="145"><label class="error" for="username1" id="password2_error">This field is required</label></td>
+				<td><input name="password2" type="password" id="password2" class="inputs"></td>
+				<td width="145"><label class="error" for="username1" id="password_error2"></label></td>
 				</tr>
 				<tr>
 				<td>Email</td>
 				<td>:</td>
 				<td><input name="email" type="text" id="email" class="inputs"></td>
-				<td width="145"><label class="error" for="username1" id="email_error">This field is required</label></td>
+				<td width="145"><label class="error" for="email" id="email_error"></label></td>
 				</tr>
 				<tr>
 				<td>&nbsp;</td>
@@ -100,7 +97,8 @@
 				</form>
 				</tr>
 				</table>	
-		</div>
+				</div>
+		<div id="message_panel" class="reg_message"></div>
 	</div>	
 	
 	</body>
