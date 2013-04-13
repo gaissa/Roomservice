@@ -2,21 +2,21 @@
 <reservations>
   <reservation>
     <ID>1</ID>
-    <start_time>2013-04-05 00:00:00</start_time>
+    <start_time>2013-04-13 00:00:00</start_time>
     <duration>2</duration>
     <user_ID>1</user_ID>
     <room_ID>1</room_ID>
   </reservation>
   <reservation>
     <ID>2</ID>
-    <start_time>2013-04-08 07:00:00</start_time>
+    <start_time>2013-04-13 07:00:00</start_time>
     <duration>1</duration>
     <user_ID>2</user_ID>
     <room_ID>2</room_ID>
   </reservation>
   <reservation>
     <ID>4</ID>
-    <start_time>2013-04-09 06:00:00</start_time>
+    <start_time>2013-04-13 06:00:00</start_time>
     <duration>1</duration>
     <user_ID>5</user_ID>
     <room_ID>3</room_ID>

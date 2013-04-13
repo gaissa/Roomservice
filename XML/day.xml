@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<day date="20130409">
-  <hour number="0"/>
+<day date="20130413">
+  <hour number="0">
+    <reservation/>
+  </hour>
   <hour number="1"/>
   <hour number="2"/>
   <hour number="3"/>
