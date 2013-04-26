@@ -34,7 +34,7 @@
 
         <?php
 
-            #database config
+            // Database config.
             require_once('config.php');
 
             // Connect to database.
@@ -52,11 +52,14 @@
 
         <?php
 
-            // End database fetching while loop here
+            // End database fetching while loop here.
             }
+            
+            // Close the database connection.
+            mysql_close($db);
         ?>
 
-        // DEBUG
+        // DEBUG!
         alert(list.length);
 
         // A list for storing the events.
@@ -64,7 +67,7 @@
 
         for(var i = 0; i < list.length; i++) {
 
-            // DEBUG
+            // DEBUG!
             alert(list[i]);
 
             events[new Date(list[i])] = new Event("Valentines Day", "pink");
@@ -74,7 +77,7 @@
         events[new Date("04/10/2013")] = new Event("Valentines Day", "pink");
         events[new Date("04/12/2013")] = new Event("Payday", "green");
 
-        // DEBUG
+        // DEBUG!
         console.dir(events);
 
         $("#datepicker").datepicker({
