@@ -3,17 +3,17 @@
 
 <head>
 
-	<title>Roomservice</title>
+    <title>Roomservice</title>
 
-    <meta charset="utf-8">    
-    	
-	<link href="css/normalize.css" rel="stylesheet" type="text/css"/>
-	<link href="css/datepicker.css" rel="stylesheet" type="text/css"/>	
-    	
-	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-	<script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
+    <meta charset="utf-8">
+
+    <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
+    <link href="css/datepicker.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
     <script type="text/javascript" src="js/jquery.ui.datepicker-fi.js"></script>
-    
+
 </head>
 
 <body>
@@ -103,7 +103,7 @@
     </script>
 
     <div id="datepicker"></div>
-    
+
 </body>
 
 </html>
