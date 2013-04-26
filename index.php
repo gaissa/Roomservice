@@ -35,8 +35,7 @@
 	      	$result = mysql_query('SELECT * FROM bondit') or die ('Error performing query');
 	      	
 	      	// Start fetching data from the database.
-	      	while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
-	      			
+	      	while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {	      			
 	    ?>
 	    
 	    list[list.length] = <?php echo '"'.$row['date'].'"'?>;	    	
@@ -44,8 +43,7 @@
 	    <?php
 	    
 	    	// End database fetching while loop here
-	      	}
-	      		
+	      	}	      		
 	    ?>
     	
     	// DEBUG
@@ -59,8 +57,7 @@
     		// DEBUG
         	alert(list[i]);        	
         	
-        	events[new Date(list[i])] = new Event("Valentines Day", "pink");
-        	
+        	events[new Date(list[i])] = new Event("Valentines Day", "pink");        	
     	}
 
 		// REPLACE THESE!
@@ -78,14 +75,12 @@
 				
 				if (event) {
 				
-					return [true, event.className, event.text];	
-					
+					return [true, event.className, event.text];						
 				}
 				
 				else {	
 				
 					return [true, '', ''];
-
 				}
 			},
 			
