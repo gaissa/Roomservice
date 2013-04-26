@@ -29,7 +29,7 @@
 	    	$db = mysql_connect('<server>','<user>','<password>') or die('Error connecting to the server');
 	      	mysql_select_db('<database>') or die('Error selecting database');
 
-			// Select from database.
+		// Select from database.
 	      	$result = mysql_query('SELECT * FROM bondit') or die ('Error performing query');
 	      	
 	      	// Start fetching data from the database.
