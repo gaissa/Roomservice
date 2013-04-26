@@ -48,7 +48,7 @@
             while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
         ?>
 
-        list[list.length] = <?php echo '"'.$row['res_text'].'"'?>;
+        list[list.length] = <?php echo '"'.$row['res_date'].'"'?>;
 
         <?php
 
@@ -60,7 +60,7 @@
         ?>
 
         // DEBUG!
-        alert(list.length);
+        //alert(list.length);
 
         // A list for storing the events.
         var events = [];
@@ -68,14 +68,14 @@
         for(var i = 0; i < list.length; i++) {
 
             // DEBUG!
-            alert(list[i]);
+           // alert(list[i]);
 
             events[new Date(list[i])] = new Event("Valentines Day", "pink");
         }
 
         // REPLACE THESE!
-        events[new Date("04/10/2013")] = new Event("Valentines Day", "pink");
-        events[new Date("04/12/2013")] = new Event("Payday", "green");
+        //events[new Date("04/10/2013")] = new Event("Valentines Day", "pink");
+        //events[new Date("04/12/2013")] = new Event("Payday", "green");
 
         // DEBUG!
         console.dir(events);
@@ -112,18 +112,11 @@
     });
 
     function getDate(date) {
-
-        $.post("getres.php", {
-        
-            date: date, roomid: "15"
-        },
-
-        function(data) {
-
-            alert("Data Loaded: " + data);
-
-        });
-    }
+		$.post("getres.php", { date: date, roomid: "15" }, 
+			function(data) {
+				alert("Data Loaded: " + data);
+			});
+	}
 
     </script>
 
