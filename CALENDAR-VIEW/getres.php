@@ -15,11 +15,11 @@ function getReservation($date, $room_id, $db_host, $db_name, $db_pass) {
 	$db = new PDO("mysql:host=$db_host;dbname=$db_name;charset=UTF-8", "root", "$db_pass", array
 	(PDO::ATTR_EMULATE_PREPARES => false,
 	PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-	
+
 	$sql = "SELECT * FROM reservations WHERE res_date = '$date' AND room_id = '$room_id'";
-	
+
 	$result = $db->query($sql);
-	
+
 	while($row = $result->fetch(PDO::FETCH_ASSOC)) {
 		return $row['res_text'];
 	}
