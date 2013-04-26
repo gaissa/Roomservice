@@ -52,7 +52,7 @@
 
         <?php
 
-            // End database fetching while loop here.
+            // End database fetching  loop here.
             }
 
             // Close the database connection.
@@ -67,15 +67,8 @@
 
         for(var i = 0; i < list.length; i++) {
 
-            // DEBUG!
-           // alert(list[i]);
-
             events[new Date(list[i])] = new Event("Valentines Day", "pink");
         }
-
-        // REPLACE THESE!
-        //events[new Date("04/10/2013")] = new Event("Valentines Day", "pink");
-        //events[new Date("04/12/2013")] = new Event("Payday", "green");
 
         // DEBUG!
         console.dir(events);
@@ -112,11 +105,17 @@
     });
 
     function getDate(date) {
-		$.post("getres.php", { date: date, roomid: "15" }, 
-			function(data) {
-				alert("Data Loaded: " + data);
-			});
-	}
+
+        $.post("getres.php", {
+
+            // NOTICE THE ROOM_ID HERE!!!!!
+            date: date, roomid: "14"
+        },
+
+        function(data) {
+            alert("Data Loaded: " + data + " " + date);
+        });
+    }
 
     </script>
 
