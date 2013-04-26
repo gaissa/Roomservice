@@ -42,19 +42,19 @@
             mysql_select_db($db_name) or die('Error selecting database');
 
             // Select from database.
-            $result = mysql_query('SELECT * FROM bondit') or die ('Error performing query');
+            $result = mysql_query('SELECT * FROM reservations') or die ('Error performing query');
 
             // Start fetching data from the database.
             while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
         ?>
 
-        list[list.length] = <?php echo '"'.$row['date'].'"'?>;
+        list[list.length] = <?php echo '"'.$row['res_text'].'"'?>;
 
         <?php
 
             // End database fetching while loop here.
             }
-            
+
             // Close the database connection.
             mysql_close($db);
         ?>
@@ -99,12 +99,31 @@
 
             onSelect: function(date) {
 
-                // REPLACE THIS!
-                alert(date);
+                /*for(var i = 0; i < date_list.length; i++) {
+                    if(date == date_list[i]) {
+                        alert(text_list[i]);
+                    }
+                }*/
+
+                getDate(date);
             }
         });
 
     });
+
+    function getDate(date) {
+
+        $.post("getres.php", {
+        
+            date: date, roomid: "15"
+        },
+
+        function(data) {
+
+            alert("Data Loaded: " + data);
+
+        });
+    }
 
     </script>
 
