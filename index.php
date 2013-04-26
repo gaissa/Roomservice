@@ -11,8 +11,6 @@
 	
 	<script type="text/javascript">
 	
-	//var e;
-	
 	$(function() {
 	
 		var Event = function(text, className) {
