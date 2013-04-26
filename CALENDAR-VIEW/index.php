@@ -34,9 +34,12 @@
 
         <?php
 
+            #database config
+            require_once('config.php');
+
             // Connect to database.
-            $db = mysql_connect('<server>','<user>','<password>') or die('Error connecting to the server');
-            mysql_select_db('<database>') or die('Error selecting database');
+            $db = mysql_connect($db_host, $db_user, $db_pass) or die('Error connecting to the server');
+            mysql_select_db($db_name) or die('Error selecting database');
 
             // Select from database.
             $result = mysql_query('SELECT * FROM bondit') or die ('Error performing query');
