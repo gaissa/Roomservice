@@ -97,24 +97,25 @@
                         alert(text_list[i]);
                     }
                 }*/
-
+				
                 getDate(date);
             }
         });
 
     });
 
+    // Function for getting specific dates reservation 
     function getDate(date) {
-
+		
+		// Array containing date + room id
+		var dataArray = { date: date, roomid: "14" };
+		// Post request to getres.php
         $.post("getres.php", {
-
-            // NOTICE THE ROOM_ID HERE!!!!!
-            date: date, roomid: "14"
+            "dataArray": JSON.stringify(dataArray)
         },
-
         function(data) {
-            alert("Data Loaded: " + data + " " + date);
-        });
+            alert("RESERVATION: " + data.restext + "\nDATE: " + date + "\nIS RESERVED: " + data.isreserved);
+        }, "json");
     }
 
     </script>

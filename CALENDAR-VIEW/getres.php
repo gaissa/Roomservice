@@ -2,12 +2,29 @@
 
     // Database config.
     require_once('config.php');
-
-    $date = $_POST['date'];
-    $room_id = $_POST['roomid'];
-
-    echo getReservation($date, $room_id, $db_host, $db_name, $db_pass);
-
+	// Json header
+	header("Content-Type: application/json", true);
+	// Json array from JS
+	$json = $_POST['dataArray'];
+	// Decode json
+	$array = json_decode($json, true);
+	// Get parameters from json
+    $date = $array['date'];
+    $room_id = $array['roomid'];
+	$reserved = null;
+	
+    $reservation = getReservation($date, $room_id, $db_host, $db_name, $db_pass);
+	
+	if($reservation['res_date'] !== null) {
+		$reserved = true;
+	} else {
+		$reserved = false;
+	}
+	
+	//echo json_encode(array("restext" => $reservation, "isreserved" => $room_id));
+	echo json_encode(array("restext" => $reservation['res_text'], "isreserved" => $reserved));
+	
+	// Function for getting reservation row
     function getReservation($date, $room_id, $db_host, $db_name, $db_pass) {
 
         // Database connection
@@ -22,7 +39,7 @@
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
 
-            return $row['res_text'];
+            return $row;
 
         }
 
