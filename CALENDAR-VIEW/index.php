@@ -33,10 +33,10 @@
         var list = [];
 
         <?php
-
+			
             // Database config.
             require_once('config.php');
-
+			
             // Connect to database.
             $db = mysql_connect($db_host, $db_user, $db_pass) or die('Error connecting to the server');
             mysql_select_db($db_name) or die('Error selecting database');
@@ -65,9 +65,13 @@
         // A list for storing the events.
         var events = [];
 
-        for(var i = 0; i < list.length; i++) {
+       for(var i = 0; i < list.length; i++) {
 
-            events[new Date(list[i])] = new Event("Valentines Day", "pink");
+            var n = list[i].split(".");
+            var newdate = n[1] + "." + n[0] + "." + n[2];
+            //alert(newdate);
+        
+            events[new Date(newdate)] = new Event("Valentines Day", "pink");
         }
 
         // DEBUG!

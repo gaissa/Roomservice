@@ -1,5 +1,4 @@
 <?php
-
     // Database config.
     require_once('config.php');
 	// Json header
@@ -28,9 +27,10 @@
     function getReservation($date, $room_id, $db_host, $db_name, $db_pass) {
 
         // Database connection
-        $db = new PDO("mysql:host=$db_host; dbname=$db_name; charset=UTF-8",
+        $db = new PDO("mysql:host=$db_host; dbname=$db_name",
                       "root", "$db_pass", array(PDO::ATTR_EMULATE_PREPARES => false,
-                      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+                      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+					  PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 
         $sql = "SELECT * FROM reservations WHERE res_date = '$date'
                          AND room_ID = '$room_id'";
