@@ -59,6 +59,7 @@
                         buttons: {
                             "Delete reservation": function() {
                                 delDate(date);
+                                $( this ).dialog( "close" );
                             },
                             Cancel: function() {
                                 $( this ).dialog( "close" );
@@ -124,6 +125,7 @@
 
         function(data) {
             //alert("RESERVATION: " + data.restext + "\nDATE: " + date + "\nIS RESERVED: " + data.isreserved);
+
             $('#dialog-confirm').text(data.restext);
             $('#dialog-confirm').parent().find("span.ui-dialog-title").html(date);
         },
@@ -153,8 +155,8 @@
     // for refreshing the page + updating the database.
     function clear() {
 
-        alert("ALL CLEAR!");
-
+        alert("ALL CLEAR!");        
+        location.reload();
     }
 
     </script>
