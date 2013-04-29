@@ -6,9 +6,9 @@ A reservation system (currently under development).
 
 Created with:
 
-	PHP
-	JavaScript
-	HTML
-	CSS
-	MySQL
-	
+    PHP
+    JavaScript
+    HTML
+    CSS
+    MySQL
+
