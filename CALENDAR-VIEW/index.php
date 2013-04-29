@@ -94,14 +94,7 @@
                 }
             },
 
-            onSelect: function(date) {
-
-                /*for(var i = 0; i < date_list.length; i++) {
-                    if(date == date_list[i]) {
-                        alert(text_list[i]);
-                    }
-                }*/
-				
+            onSelect: function(date) {				
                 getDate(date);
             }
         });
@@ -114,7 +107,7 @@
 		// Array containing date + room id
 		var dataArray = { date: date, roomid: "14" };
 		// Post request to getres.php
-        $.post("getres.php", {
+        $.post("php/getres.php", {
             "dataArray": JSON.stringify(dataArray)
         },
         function(data) {
