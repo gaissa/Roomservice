@@ -14,7 +14,6 @@
     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
     <script type="text/javascript" src="js/jquery.ui.datepicker-fi.js"></script>
 
-
 </head>
 
 <body>
@@ -22,7 +21,7 @@
     <script type="text/javascript">
 
     $(function() {
-
+    
         // Get all reservations to this array
         var rArray = getAllReservations();
 
@@ -49,24 +48,25 @@
                 getDate(date);
 
                 $(function() {
-
+                    
                     $( "#dialog-confirm" ).dialog({
 
                         resizable: false,
-                        height: 240,
+                        height: 440,
+                        width: 440,
                         modal: true,
-
-                        buttons: {
-                            "Delete reservation": function() {
-                                delDate(date);
-                                $( this ).dialog( "close" );
-                            },
-                            Cancel: function() {
+                        
+                        buttons: {                            
+                            
+                            // Must have at least one button for some reason?!
+                            Cancel: function() {      
+                                $(this).dialog().find('.ui-dialog-buttonpane button:last'); 
                                 $( this ).dialog( "close" );
                             }
                         }
                     });
                 });
+                
             }
 
         });
@@ -124,18 +124,52 @@
         },
 
         function(data) {
-            //alert("RESERVATION: " + data.restext + "\nDATE: " + date + "\nIS RESERVED: " + data.isreserved);
+        
+            //alert("RESERVATION: " + data.restext + "\nDATE: " + date + "\nIS RESERVED: " + data.isreserved);            
+            
+            // If date has reservations, show DELETE button.
+            if(data.isreserved === true) {
+            
+                $('#dialog-confirm').text(data.restext);
+                $('#dialog-confirm').parent().find("span.ui-dialog-title").html(date);
+                
+                var buttonSet = $('#dialog-confirm').parent().find('.ui-dialog-buttonset');                
+                
+                var newButton = $('<button>Delete reservation</button>');
+                
+                newButton.button().click(function () {                    
+                    delDate(date);
+                    $('#dialog-confirm').dialog( "close" );                     
+                });
+                
+                buttonSet.append(newButton);
+            }
 
-            $('#dialog-confirm').text(data.restext);
-            $('#dialog-confirm').parent().find("span.ui-dialog-title").html(date);
+            // If date has reservations, show ADD button.
+            else {
+            
+                $('#dialog-confirm').text('');                
+                $('#dialog-confirm').parent().find("span.ui-dialog-title").html(date);
+                
+                var buttonSet = $('#dialog-confirm').parent().find('.ui-dialog-buttonset');                
+                
+                var newButton = $('<button>Add reservation</button>');
+                
+                newButton.button().click(function () {
+                    alert('ADD BUTTON CLICKED!');
+                });
+                
+                buttonSet.append(newButton);                
+            }
         },
 
         "json");
+        
     }
 
     // Function for deleting a specific reservation
     function delDate(date) {
-
+        
         // Array containing date + room id
         var dataArray = { date: date, roomid: "14" };
 
@@ -145,8 +179,11 @@
         },
 
         function(data) {
+        
             //alert("RESERVATION: " + data.restext + "\nDATE: " + date + "\nIS RESERVED: " + data.isreserved);
+            
             clear();
+            
         },
 
         "json");
@@ -154,8 +191,8 @@
 
     // for refreshing the page + updating the database.
     function clear() {
-
-        alert("ALL CLEAR!");        
+                              
+        alert("Reservation deleted!");      
         location.reload();
     }
 
