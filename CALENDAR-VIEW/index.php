@@ -19,14 +19,17 @@
 <body>
 
     <script type="text/javascript">
-
-    $(function() {
-    
+	var rArray = [];
+	var events = [];
+	$(document).ready(function() {	
+		
+	datePicker();
+	
+	function datePicker() {
         // Get all reservations to this array
-        var rArray = getAllReservations();
-
+        getAllReservations();
         // Get all events to this array for calendar display
-        var events = createEvents(rArray);
+        events = createEvents(rArray);
 
         $("#datepicker").datepicker({
 
@@ -71,7 +74,13 @@
 
         });
 
-    });
+    
+	}
+	
+	function split(res) {
+		rArray = res.split(" ");
+	}
+	
 
     // Creates events from reservations
     function createEvents(rArray) {
@@ -106,11 +115,11 @@
             url: 'php/getallreservations.php',
             dataType: 'text',
             async: false,
-            success: function(result){ reservationArray = result.split(" "); }
+            success: function(result){ split(result); }
         });
 
         return reservationArray;
-    }
+    }	
 
     // Function for getting specific reservation
     function getDate(date) {
@@ -139,6 +148,14 @@
                 
                 newButton.button().click(function () {                    
                     delDate(date);
+					// Get all reservations to this array
+					alert("BEFORE ARRAY" +rArray);
+					getAllReservations();
+					alert("AFTER ARRAY" +rArray);
+					// Get all events to this array for calendar display
+					events = createEvents(rArray);
+					//datePicker();
+					$("#datepicker").datepicker("refresh");
                     $('#dialog-confirm').dialog( "close" );                     
                 });
                 
@@ -193,9 +210,9 @@
     function clear() {
                               
         alert("Reservation deleted!");      
-        location.reload();
+        //location.reload();
     }
-
+});
     </script>
 
     <div id="dialog-confirm"></div>
