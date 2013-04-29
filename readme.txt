@@ -1,5 +1,14 @@
-			IN DEVELOPMENT
 
-------------------------------------------------------------------------
+Roomservice (a working title)
+=============================
 
-This is a reservation system made with PHP, MySQL, JavaScript, HTML + CSS
+A reservation system (currently under development).
+
+Created with:
+
+	PHP
+	JavaScript
+	HTML
+	CSS
+	MySQL
+	
