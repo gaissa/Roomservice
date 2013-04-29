@@ -19,64 +19,13 @@
 <body>
 
     <script type="text/javascript">
-
+				
     $(function() {
-
-        var Event = function(text, className) {
-
-            this.text = text;
-            this.className = className;
-
-        };
-
-        // A list for storing the dates of reservations.
-        var list = [];
-
-        <?php
-
-            // Database config.
-            require_once('php/config.php');
-
-            // Connect to database.
-            $db = mysql_connect($db_host, $db_user, $db_pass) or die('Error connecting to the server');
-            mysql_select_db($db_name) or die('Error selecting database');
-
-            // Select from database.
-            $result = mysql_query("SELECT * FROM reservations WHERE room_id = '14'") or die ('Error performing query');
-
-            // Start fetching data from the database.
-            while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
-        ?>
-
-        list[list.length] = <?php echo '"'.$row['res_date'].'"'?>;
-
-        <?php
-
-            // End database fetching  loop here.
-            }
-
-            // Close the database connection.
-            mysql_close($db);
-        ?>
-
-        // DEBUG!
-        //alert(list.length);
-
-        // A list for storing the events.
-        var events = [];
-
-       for(var i = 0; i < list.length; i++) {
-
-            var n = list[i].split(".");
-            var newdate = n[1] + "." + n[0] + "." + n[2];
-            //alert(newdate);
-
-            events[new Date(newdate)] = new Event("Valentines Day", "pink");
-        }
-
-        // DEBUG!
-        console.dir(events);
-
+		// Get all reservations to this array
+		var rArray = getAllReservations();	
+		// Get all events to this array for calendar display
+        var events = createEvents(rArray);
+	
         $("#datepicker").datepicker({
 
             beforeShowDay: function(date) {
@@ -84,27 +33,64 @@
                 var event = events[date];
 
                 if (event) {
-
                     return [true, event.className, event.text];
                 }
 
                 else {
-
                     return [true, '', ''];
                 }
             },
 
             onSelect: function(date) {
 
-                //getDate(date);
+                getDate(date);
 
                 // FOR TESTING!
-                delDate(date);
+                //delDate(date);
             }
         });
 
     });
+	
+	// Creates events from reservations
+	function createEvents(rArray) {
+		
+		var events = [];	
+		
+		var Event = function(text, className) {
 
+            this.text = text;
+            this.className = className;
+
+        };        
+		
+       for(var i = 0; i < rArray.length; i++) {
+
+            var n = rArray[i].split(".");
+            var newdate = n[1] + "." + n[0] + "." + n[2];
+            
+            events[new Date(newdate)] = new Event("Valentines Day", "pink");
+        }
+		
+		return events;
+	}
+		
+	// Function for getting all room reservations
+    function getAllReservations() {
+		
+		var reservationArray;   
+       
+		$.ajax({
+			type: 'POST',
+			url: 'php/getallreservations.php',
+			dataType: 'text',
+			async: false,
+			success: function(result){ reservationArray = result.split(" "); }
+		});
+		
+		return reservationArray;
+    }
+	
     // Function for getting specific reservation
     function getDate(date) {
 
@@ -112,7 +98,7 @@
         var dataArray = { date: date, roomid: "14" };
 
         // Post request to getres.php
-        $.post("php/getres.php", {
+        $.post("php/getreservation.php", {
             "dataArray": JSON.stringify(dataArray)
         },
 
