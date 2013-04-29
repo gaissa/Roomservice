@@ -95,24 +95,58 @@
             },
 
             onSelect: function(date) {
-                getDate(date);
+
+                //getDate(date);
+
+                // FOR TESTING!
+                delDate(date);
             }
         });
 
     });
 
-    // Function for getting specific dates reservation
+    // Function for getting specific reservation
     function getDate(date) {
 
         // Array containing date + room id
         var dataArray = { date: date, roomid: "14" };
+
         // Post request to getres.php
         $.post("php/getres.php", {
             "dataArray": JSON.stringify(dataArray)
         },
+
         function(data) {
             alert("RESERVATION: " + data.restext + "\nDATE: " + date + "\nIS RESERVED: " + data.isreserved);
-        }, "json");
+        },
+
+        "json");
+    }
+
+    // Function for deleting a specific reservation
+    function delDate(date) {
+
+        // Array containing date + room id
+        var dataArray = { date: date, roomid: "14" };
+
+        // Post request to delres.php
+        $.post("php/delres.php", {
+            "dataArray": JSON.stringify(dataArray)
+        },
+
+        function(data) {
+            alert("RESERVATION: " + data.restext + "\nDATE: " + date + "\nIS RESERVED: " + data.isreserved);
+            clear();
+        },
+
+        "json");
+    }
+
+    // for refreshing the page + updating the database.
+    function clear() {
+
+        alert("ALL CLEAR!");
+
     }
 
     </script>
