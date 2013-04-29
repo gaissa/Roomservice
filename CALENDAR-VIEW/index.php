@@ -33,16 +33,16 @@
         var list = [];
 
         <?php
-			
+
             // Database config.
-            require_once('config.php');
-			
+            require_once('php/config.php');
+
             // Connect to database.
             $db = mysql_connect($db_host, $db_user, $db_pass) or die('Error connecting to the server');
             mysql_select_db($db_name) or die('Error selecting database');
 
             // Select from database.
-            $result = mysql_query('SELECT * FROM reservations') or die ('Error performing query');
+            $result = mysql_query("SELECT * FROM reservations WHERE room_id = '14'") or die ('Error performing query');
 
             // Start fetching data from the database.
             while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
@@ -70,7 +70,7 @@
             var n = list[i].split(".");
             var newdate = n[1] + "." + n[0] + "." + n[2];
             //alert(newdate);
-        
+
             events[new Date(newdate)] = new Event("Valentines Day", "pink");
         }
 
@@ -94,19 +94,19 @@
                 }
             },
 
-            onSelect: function(date) {				
+            onSelect: function(date) {
                 getDate(date);
             }
         });
 
     });
 
-    // Function for getting specific dates reservation 
+    // Function for getting specific dates reservation
     function getDate(date) {
-		
-		// Array containing date + room id
-		var dataArray = { date: date, roomid: "14" };
-		// Post request to getres.php
+
+        // Array containing date + room id
+        var dataArray = { date: date, roomid: "14" };
+        // Post request to getres.php
         $.post("php/getres.php", {
             "dataArray": JSON.stringify(dataArray)
         },
