@@ -46,7 +46,7 @@ if(!isset($_SESSION["logged_in"])) {
 	
 	function datePicker() {
         // Get all reservations to this array
-        getAllReservations(userID, currentRoom);
+        rArray = getAllReservations(userID, currentRoom);
         // Get all events to this array for calendar display
         events = createEvents(rArray);
 
@@ -88,16 +88,8 @@ if(!isset($_SESSION["logged_in"])) {
                         }
                     });
                 });
-                
             }
-
         });
-
-    
-	}
-	
-	function split(res) {
-		rArray = res.split(" ");
 	}
 
     // Creates events from reservations
@@ -134,10 +126,11 @@ if(!isset($_SESSION["logged_in"])) {
 			
 				// Tabs' onClick function. Posts 
 				function(){
-				index = $("#tabs").tabs('option', 'active');
-				currentRoom = rooms[index];
-				getAllReservations(userID, currentRoom);
-				console.log("Clicked tab " + index + ", room_ID = " + rooms[index]);
+					index = $("#tabs").tabs('option', 'active');
+					currentRoom = rooms[index];
+					rArray = getAllReservations(userID, currentRoom);
+					createEvents(rArray);
+					console.log("Clicked tab " + index + ", room_ID = " + rooms[index]);
 			});
 			
 			console.log(rooms[i]);
@@ -169,14 +162,17 @@ if(!isset($_SESSION["logged_in"])) {
     function getAllReservations(userID, roomID) {
 
         var reservationArray;
-
+		
         $.ajax({
             type: 'POST',
             url: 'php/getallreservations.php',
             dataType: 'json',
 			data: { currentroom: roomID, userid: userID },
             async: false,
-            success: function(result){ split(result); }
+            success: function(result){
+				reservationArray = result;
+				console.log("Success: " + reservationArray);
+			}
         });
 
         return reservationArray;

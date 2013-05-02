@@ -16,11 +16,13 @@
     $sql = "SELECT * FROM reservations WHERE room_id = $currentRoom AND user_ID = $userID";
 
 	$result = $db->query($sql);
-
+	$reservations = array();
+	
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
         
-		echo $row['res_date'] . " ";      
+		$reservations[] = $row['res_date'];      
 
     }
-         
+    
+	echo json_encode($reservations);
 ?>
