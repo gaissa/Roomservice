@@ -245,7 +245,7 @@ if(!isset($_SESSION["logged_in"])) {
     function delDate(date) {
         
         // Array containing date + room id
-        var dataArray = { date: date, roomid: "14" };
+        var dataArray = { date: date, roomid: currentRoom };
 
         // Post request to delres.php
         $.post("php/delres.php", {
