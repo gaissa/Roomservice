@@ -131,7 +131,7 @@ function sendData(dataArray) {
 			  .append("<p>You can now login.</p>")  
 			  .hide()
 			  .fadeIn(1000, function() {
-				$('#message').append("<img id='checkmark' src='images/check.png' />");
+				$('#message').append("<img id='checkmark' src='img/check.png' />");
 			  });
 			  
 			 $("#registerForm").trigger('reset');

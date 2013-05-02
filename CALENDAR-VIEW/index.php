@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if(!isset($_SESSION["logged_in"])) {
+	header("location:mainpage.html");
+} 
+
+//print_r($_SESSION);
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -20,12 +30,14 @@
 <body>
 
     <script type="text/javascript">
+	var userID = '<?php echo $_SESSION["id"] ?>';
+	//alert(userID);
 	var rArray = [];
 	var events = [];
 	var index;
 	
 	$(document).ready(function() {	
-	var rooms = getUserRooms();
+	var rooms = getUserRooms(userID);
 	
 	createTabs();
 	datePicker();
@@ -139,13 +151,14 @@
 		$("#tabs").tabs();
 	}
 	
-	function getUserRooms() {
+	function getUserRooms(userID) {
 		
 		var roomArray;
 
         $.ajax({
             type: 'POST',
             url: 'php/getuserrooms.php',
+			data: {userid: userID},
             dataType: 'json',
             async: false,
             success: function(result){

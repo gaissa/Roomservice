@@ -7,7 +7,7 @@ $passwd = $_POST['password'];
 $sha1pass = sha1($passwd);
 
 try {
-	$db = new PDO("mysql:host=$db_host;dbname=$db_name;charset=UTF-8", "root", "$db_pass", array (PDO::ATTR_EMULATE_PREPARES => false,
+	$db = new PDO("mysql:host=$db_host;dbname=$db_name;charset=UTF-8", "$db_user", "$db_pass", array (PDO::ATTR_EMULATE_PREPARES => false,
 	PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 	
 	validateData($db, $usernm, $sha1pass);
@@ -18,7 +18,7 @@ try {
 
 # Validates user information
 function validateData($db, $username, $password) {
-	$res = $db->prepare("SELECT username, password FROM users
+	$res = $db->prepare("SELECT ID, username, password FROM users
 			WHERE username= :username");
 	$res->bindParam(':username', $username, PDO::PARAM_STR);
 	
@@ -27,7 +27,8 @@ function validateData($db, $username, $password) {
 	if($res->execute() && $row = $res->fetch()) {
 		if($row['password'] === $password) {
 			$_SESSION["logged_in"] = true;
-			header("location: index.php");
+			$_SESSION["id"] = $row['ID'];
+			header("location: ../index.php");
 		} else if ($row['password'] !== $password){
 			echo "Login failed";
 		}
