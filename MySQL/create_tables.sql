@@ -21,5 +21,6 @@ CREATE TABLE reservations
 CREATE TABLE room
 (
     ID INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-    user_IDs INT
+    user_ID INT
+	room_ID INT
 );
