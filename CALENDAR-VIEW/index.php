@@ -22,7 +22,10 @@
     <script type="text/javascript">
 	var rArray = [];
 	var events = [];
+	var index;
+	
 	$(document).ready(function() {	
+	var rooms = getUserRooms();
 	
 	createTabs();
 	datePicker();
@@ -50,7 +53,7 @@
 
             onSelect: function(date) {
 
-                getDate(date);
+                getDate(date, rooms[index]);
 
                 $(function() {
                     
@@ -82,7 +85,6 @@
 	function split(res) {
 		rArray = res.split(" ");
 	}
-	
 
     // Creates events from reservations
     function createEvents(rArray) {
@@ -110,7 +112,7 @@
 	// Creates tabs for selecting a room.
 	function createTabs() {
 		
-		var rooms = getUserRooms();
+		
 		console.log(rooms.length);
 		
 		for(var i = 0 ; i < rooms.length ; i++) {
@@ -119,11 +121,11 @@
 			
 				// Tabs' onClick function. Posts 
 				function(){
-				var index = $("#tabs").tabs('option', 'active');
+				index = $("#tabs").tabs('option', 'active');
 					$.ajax({
 						type: 'POST',
 						url: 'php/getallreservations.php',
-						data: 'currentRoom=' + rooms[index],
+						data: {currentRoom: rooms[index]},
 						dataType: 'text',
 						async: false,
 						success: function(result){ split(result); }
@@ -172,10 +174,10 @@
     }
 
     // Function for getting specific reservation
-    function getDate(date) {
+    function getDate(date, roomid) {
 
         // Array containing date + room id
-        var dataArray = { date: date, roomid: "14" };
+        var dataArray = { date: date, roomid: roomid };
 
         // Post request to getres.php
         $.post("php/getreservation.php", {
@@ -188,7 +190,7 @@
             
             // If date has reservations, show DELETE button.
             if(data.isreserved === true) {
-            
+				alert("RESTEXT" + data.restext);
                 $('#dialog-confirm').text(data.restext);
                 $('#dialog-confirm').parent().find("span.ui-dialog-title").html(date);
                 

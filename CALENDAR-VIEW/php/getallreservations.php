@@ -2,7 +2,7 @@
 
      // Database config.
     require_once('config.php');
-	$_POST['currentRoom'] = 14;
+	$currentRoom = $_POST['currentRoom'];
 
     // Connect to database.
     // Database connection
@@ -12,7 +12,7 @@
 				PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 
     // Select from database.
-    $sql = "SELECT * FROM reservations WHERE room_id = $_POST['currentRoom']";
+    $sql = "SELECT * FROM reservations WHERE room_id = $currentRoom AND user_ID = 1";
 
 	$result = $db->query($sql);
 
