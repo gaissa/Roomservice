@@ -39,12 +39,15 @@ if(!isset($_SESSION["logged_in"])) {
 	$(document).ready(function() {	
 	var rooms = getUserRooms(userID);
 	
+	// ID of currently selected room
+	var currentRoom = rooms[0];
+	
 	createTabs();
 	datePicker();
 	
 	function datePicker() {
         // Get all reservations to this array
-        getAllReservations();
+        getAllReservations(userID, currentRoom);
         // Get all events to this array for calendar display
         events = createEvents(rArray);
 
@@ -124,7 +127,6 @@ if(!isset($_SESSION["logged_in"])) {
 	// Creates tabs for selecting a room.
 	function createTabs() {
 		
-		
 		console.log(rooms.length);
 		
 		for(var i = 0 ; i < rooms.length ; i++) {
@@ -134,14 +136,8 @@ if(!isset($_SESSION["logged_in"])) {
 				// Tabs' onClick function. Posts 
 				function(){
 				index = $("#tabs").tabs('option', 'active');
-					$.ajax({
-						type: 'POST',
-						url: 'php/getallreservations.php',
-						data: {currentRoom: rooms[index]},
-						dataType: 'text',
-						async: false,
-						success: function(result){ split(result); }
-					});
+				currentRoom = rooms[index];
+				getAllReservations(userID, currentRoom);
 				console.log("Clicked tab " + index + ", room_ID = " + rooms[index]);
 			});
 			
@@ -171,14 +167,15 @@ if(!isset($_SESSION["logged_in"])) {
 	}
 	
     // Function for getting all room reservations
-    function getAllReservations() {
+    function getAllReservations(userID, roomID) {
 
         var reservationArray;
 
         $.ajax({
             type: 'POST',
             url: 'php/getallreservations.php',
-            dataType: 'text',
+            dataType: 'json',
+			data: { currentroom: roomID, userid: userID },
             async: false,
             success: function(result){ split(result); }
         });
@@ -215,7 +212,7 @@ if(!isset($_SESSION["logged_in"])) {
                     delDate(date);
 					// Get all reservations to this array
 					alert("BEFORE ARRAY" +rArray);
-					getAllReservations();
+					getAllReservations(userID, currentRoom);
 					alert("AFTER ARRAY" +rArray);
 					// Get all events to this array for calendar display
 					events = createEvents(rArray);
