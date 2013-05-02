@@ -9,6 +9,7 @@
 
     <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
     <link href="css/datepicker.css" rel="stylesheet" type="text/css"/>
+    <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
 
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
@@ -22,7 +23,8 @@
 	var rArray = [];
 	var events = [];
 	$(document).ready(function() {	
-		
+	
+	createTabs();
 	datePicker();
 	
 	function datePicker() {
@@ -104,7 +106,55 @@
 
         return events;
     }
+	
+	// Creates tabs for selecting a room.
+	function createTabs() {
+		
+		var rooms = getUserRooms();
+		console.log(rooms.length);
+		
+		for(var i = 0 ; i < rooms.length ; i++) {
+			
+			$("#tabs").find("ul").append('<li><a href="#datepicker">' + rooms[i] + '</a></li>').click(
+			
+				// Tabs' onClick function. Posts 
+				function(){
+				var index = $("#tabs").tabs('option', 'active');
+					$.ajax({
+						type: 'POST',
+						url: 'php/getallreservations.php',
+						data: 'currentRoom=' + rooms[index],
+						dataType: 'text',
+						async: false,
+						success: function(result){ split(result); }
+					});
+				console.log("Clicked tab " + index + ", room_ID = " + rooms[index]);
+			});
+			
+			console.log(rooms[i]);
+		}
+		
+		$("#tabs").tabs();
+	}
+	
+	function getUserRooms() {
+		
+		var roomArray;
 
+        $.ajax({
+            type: 'POST',
+            url: 'php/getuserrooms.php',
+            dataType: 'json',
+            async: false,
+            success: function(result){
+					console.log(result);
+					roomArray = result;
+				}
+        });
+
+        return roomArray;
+	}
+	
     // Function for getting all room reservations
     function getAllReservations() {
 
@@ -119,7 +169,7 @@
         });
 
         return reservationArray;
-    }	
+    }
 
     // Function for getting specific reservation
     function getDate(date) {
@@ -214,9 +264,14 @@
     }
 });
     </script>
-
+	<div id="tabs">
+		<ul>
+		</ul>
+		<div id="empty"></div>
+		<div id="datepicker"></div>
+	</div>
     <div id="dialog-confirm"></div>
-    <div id="datepicker"></div>
+    
 
 </body>
 

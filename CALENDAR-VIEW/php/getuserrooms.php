@@ -2,7 +2,6 @@
 
      // Database config.
     require_once('config.php');
-	$_POST['currentRoom'] = 14;
 
     // Connect to database.
     // Database connection
@@ -12,14 +11,15 @@
 				PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 
     // Select from database.
-    $sql = "SELECT * FROM reservations WHERE room_id = $_POST['currentRoom']";
+    $sql = "SELECT room_ID FROM room WHERE user_id = 1;";
 
 	$result = $db->query($sql);
+	$rooms = array();
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
         
-		echo $row['res_date'] . " ";      
-
+		$rooms[] = $row['room_ID'];
     }
-         
+	
+	echo json_encode($rooms);
 ?>
