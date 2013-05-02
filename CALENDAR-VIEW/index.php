@@ -19,7 +19,6 @@ if(!isset($_SESSION["logged_in"])) {
 
     <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
     <link href="css/datepicker.css" rel="stylesheet" type="text/css"/>
-    <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
 
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
