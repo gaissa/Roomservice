@@ -46,7 +46,7 @@ if(!isset($_SESSION["logged_in"])) {
 	
 	function datePicker() {
         // Get all reservations to this array
-        rArray = getAllReservations(userID, currentRoom);
+        getAllReservations(userID, currentRoom);
         // Get all events to this array for calendar display
         events = createEvents(rArray);
 
@@ -128,8 +128,9 @@ if(!isset($_SESSION["logged_in"])) {
 				function(){
 					index = $("#tabs").tabs('option', 'active');
 					currentRoom = rooms[index];
-					rArray = getAllReservations(userID, currentRoom);
-					createEvents(rArray);
+					getAllReservations(userID, currentRoom);
+					events = createEvents(rArray);
+					$("#datepicker").datepicker("refresh");
 					console.log("Clicked tab " + index + ", room_ID = " + rooms[index]);
 			});
 			
@@ -138,7 +139,7 @@ if(!isset($_SESSION["logged_in"])) {
 		
 		$("#tabs").tabs();
 	}
-	
+		
 	function getUserRooms(userID) {
 		
 		var roomArray;
@@ -171,6 +172,7 @@ if(!isset($_SESSION["logged_in"])) {
             async: false,
             success: function(result){
 				reservationArray = result;
+				rArray = result;
 				console.log("Success: " + reservationArray);
 			}
         });
