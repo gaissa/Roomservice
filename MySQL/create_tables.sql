@@ -14,7 +14,7 @@ CREATE TABLE reservations
     duration INT(2),
     res_date VARCHAR(10),
     res_text VARCHAR(65000),
-    user_ID INT UNIQUE,
+    user_ID INT,
     room_ID INT
 );
 
