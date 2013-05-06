@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <reservations>
   <reservation>
-    <ID>1</ID>
-    <start_time>2013-04-13 00:00:00</start_time>
-    <duration>2</duration>
-    <user_ID>1</user_ID>
-    <room_ID>1</room_ID>
-  </reservation>
-  <reservation>
-    <ID>2</ID>
-    <start_time>2013-04-13 07:00:00</start_time>
-    <duration>1</duration>
-    <user_ID>2</user_ID>
-    <room_ID>2</room_ID>
-  </reservation>
-  <reservation>
-    <ID>4</ID>
-    <start_time>2013-04-13 06:00:00</start_time>
-    <duration>1</duration>
-    <user_ID>5</user_ID>
-    <room_ID>3</room_ID>
+    <ID>17</ID>
+    <start_time/>
+    <duration/>
+    <res_date>07.05.2013</res_date>
+    <res_text>Sepon varaus</res_text>
+    <user_ID>3</user_ID>
+    <room_ID>15</room_ID>
   </reservation>
 </reservations>

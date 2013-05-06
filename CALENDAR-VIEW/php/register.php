@@ -67,7 +67,7 @@ function checkEmail($db, $email) {
 function insertData($db, $username, $password, $email) {
 
 	$sql = "INSERT INTO users (username, password, email, userlevel)
-			VALUES (:username, :password, :email, 1)";
+			VALUES (:username, :password, :email, 1);";
 
 	$res = $db->prepare($sql);
 
@@ -81,6 +81,10 @@ function insertData($db, $username, $password, $email) {
 	 	
 	 }	else {
 	 }
+	
+	$sql = "INSERT INTO room (room_ID, user_ID)
+			VALUES (LAST_INSERT_ID(), LAST_INSERT_ID());";
+	$db->query($sql);
 }
 
 

@@ -45,7 +45,6 @@ function createXML($db) {
 	$dom->loadXML($xml);
 	$dom->formatOutput = TRUE;
 	$dom->save("reservations.xml");
-	$day_array = array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');	
 	
 }
 
