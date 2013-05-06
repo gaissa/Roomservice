@@ -30,7 +30,6 @@ if(!isset($_SESSION["logged_in"])) {
 
     <script type="text/javascript">
 	var userID = '<?php echo $_SESSION["id"] ?>';
-	//alert(userID);
 	var rArray = [];
 	var events = [];
 	var index;
@@ -42,6 +41,7 @@ if(!isset($_SESSION["logged_in"])) {
 	var currentRoom = rooms[0];
 	
 	createTabs();
+	updateTabs();
 	datePicker();
 	
 	function datePicker() {
@@ -139,6 +139,15 @@ if(!isset($_SESSION["logged_in"])) {
 		
 		$("#tabs").tabs();
 	}
+	
+	function updateTabs(){
+					index = $("#tabs").tabs('option', 'active');
+					currentRoom = rooms[index];
+					getAllReservations(userID, currentRoom);
+					events = createEvents(rArray);
+					$("#datepicker").datepicker("refresh");
+					console.log("Clicked tab " + index + ", room_ID = " + rooms[index]);
+	}
 		
 	function getUserRooms(userID) {
 		
@@ -226,13 +235,19 @@ if(!isset($_SESSION["logged_in"])) {
             
                 $('#dialog-confirm').text('');                
                 $('#dialog-confirm').parent().find("span.ui-dialog-title").html(date);
-                
+                $('#dialog-confirm').append('<textarea id="restextarea" rows="13" cols="52"></textarea>');
+								
                 var buttonSet = $('#dialog-confirm').parent().find('.ui-dialog-buttonset');                
                 
                 var newButton = $('<button>Add reservation</button>');
                 
                 newButton.button().click(function () {
-                    alert('ADD BUTTON CLICKED!');
+					var res_text = $('textarea#restextarea').val();
+					addReservation(date, res_text);
+					getAllReservations(userID, currentRoom);					
+					events = createEvents(rArray);					
+					$("#datepicker").datepicker("refresh");
+					$('#dialog-confirm').dialog( "close" );  
                 });
                 
                 buttonSet.append(newButton);                
@@ -241,6 +256,38 @@ if(!isset($_SESSION["logged_in"])) {
 
         "json");
         
+    }
+	
+	// Function for adding reservation
+    function addReservation(datee, res_text) {
+        alert(datee + " " + res_text + " " + userID + " " +  currentRoom);
+        // Array containing date + room id
+        var dataArray = { date: datee, reservationtext: res_text, userid: userID, roomid: currentRoom };
+
+        // Post request to delres.php
+       /* $.post("php/insertreservation.php", {
+               "dataArray": JSON.stringify(dataArray)
+        },
+
+        function(data) {
+        
+            alert('Varaus luotu');
+                      
+            
+        },
+
+        "json");*/
+		
+		 $.ajax({
+            type: 'POST',
+            url: 'php/insertreservation.php',
+            dataType: 'json',
+			data: { date: datee, reservationtext: res_text, userid: userID, roomid: currentRoom },
+            async: false,
+            success: function(result){
+				alert("JEE");
+			}
+        });
     }
 
     // Function for deleting a specific reservation
