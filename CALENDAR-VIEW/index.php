@@ -243,7 +243,7 @@ if(!isset($_SESSION["logged_in"])) {
                 
                 newButton.button().click(function () {
 					var res_text = $('textarea#restextarea').val();
-					addReservation(date, res_text);
+					addReservation(date, res_text, userID, currentRoom);
 					getAllReservations(userID, currentRoom);					
 					events = createEvents(rArray);					
 					$("#datepicker").datepicker("refresh");
@@ -259,13 +259,13 @@ if(!isset($_SESSION["logged_in"])) {
     }
 	
 	// Function for adding reservation
-    function addReservation(datee, res_text) {
-        alert(datee + " " + res_text + " " + userID + " " +  currentRoom);
+    function addReservation(datee, rese_text,userID, currentRoom) {
+        alert(datee + " " + rese_text + " " + userID + " " +  currentRoom);
         // Array containing date + room id
-        var dataArray = { date: datee, reservationtext: res_text, userid: userID, roomid: currentRoom };
+        var dataArray = { date: datee, reservationtext: rese_text, userid: userID, roomid: currentRoom };
 
         // Post request to delres.php
-       /* $.post("php/insertreservation.php", {
+      /*  $.post("php/insertreservation.php", {
                "dataArray": JSON.stringify(dataArray)
         },
 
@@ -282,8 +282,8 @@ if(!isset($_SESSION["logged_in"])) {
             type: 'POST',
             url: 'php/insertreservation.php',
             dataType: 'json',
-			data: { date: datee, reservationtext: res_text, userid: userID, roomid: currentRoom },
-            async: false,
+			data: { 'dataArray': JSON.stringify(dataArray)},
+			async: false,
             success: function(result){
 				alert("JEE");
 			}

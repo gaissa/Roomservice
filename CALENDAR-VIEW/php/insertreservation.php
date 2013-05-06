@@ -10,10 +10,10 @@
     // Decode json
     $array = json_decode($json, true);
 	
-	$userid = $array['userid']:
+	$userid = $array['userid'];
 	$roomid = $array['roomid'];
 	$res_text = $array['reservationtext'];
-	$res_date = $array['datee'];
+	$res_date = $array['date'];
 	
 	/*$userid = '';
 	$roomid = '';
