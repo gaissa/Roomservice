@@ -1,0 +1,13 @@
+<!DOCTYPE Reservations [
+
+<!ELEMENT Reservations (Reservation*)>
+<!ELEMENT ARTICLE (ID,start_time,duration,res_date,res_text,user_ID,room_ID)>
+<!ELEMENT ID (#PCDATA)>
+<!ELEMENT start_time (#PCDATA)>
+<!ELEMENT duration (#PCDATA)>
+<!ELEMENT res_date (#PCDATA)>
+<!ELEMENT res_text (#PCDATA)>
+<!ELEMENT user_ID (#PCDATA)>
+<!ELEMENT room_ID (#PCDATA)>
+
+]>
