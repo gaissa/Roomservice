@@ -164,8 +164,8 @@ body {
 /* Event style #1. < means direct descendant/child (as opposed to any level deep descendant when just space is used). */
 .pink > a {
 
-    background-color: white;
-    background-image:none;
+    background-color: white !important;
+    background-image:none !important;
 }
 
 /* Event style #2. < means direct descendant/child (as opposed to any level deep descendant when just space is used). */
