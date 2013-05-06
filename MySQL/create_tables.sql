@@ -1,26 +1,24 @@
 CREATE TABLE users
 (
     ID INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-    username VARCHAR(20) UNIQUE,
-    password VARCHAR(40),
-    email VARCHAR(50),
+    username VARCHAR(20) NOT NULL UNIQUE,
+    password VARCHAR(40) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE,
     userlevel INT(1)
 );
 
 CREATE TABLE reservations
 (
-    ID INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-    start_time DATETIME,
-    duration INT(2),
-    res_date VARCHAR(10),
-    res_text VARCHAR(65000),
-    user_ID INT,
-    room_ID INT
+    ID INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,   
+    res_date VARCHAR(10) NOT NULL,
+    res_text VARCHAR(65000) NOT NULL,
+    user_ID INT NOT NULL,
+    room_ID INT NOT NULL
 );
 
 CREATE TABLE room
 (
     ID INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-    user_ID INT,
-    room_ID INT
+    user_ID INT NOT NULL,
+    room_ID INT NOT NULL
 );

@@ -13,7 +13,7 @@
 				PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 
     // Select from database.
-    $sql = "SELECT DISTINCT room_ID FROM reservations WHERE user_id = $userid;";
+    $sql = "SELECT room_ID FROM room WHERE user_id = $userid;";
 
 	$result = $db->query($sql);
 	$rooms = array();
