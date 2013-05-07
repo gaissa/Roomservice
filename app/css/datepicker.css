@@ -190,9 +190,15 @@ textarea#restextarea {
 }
 
 /* Event style #1. < means direct descendant/child (as opposed to any level deep descendant when just space is used). */
-.eventcolor {
+.eventcolor1 {
 
     background-color: white !important;
+    background-image: none !important; 
+}
+
+.eventcolor2 {
+
+    background-color: #8B1A1A !important;
     background-image: none !important; 
 }
 

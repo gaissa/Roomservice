@@ -1,4 +1,5 @@
 var rArray = [];
+var redArray = [];
 var events = [];
 var index;
 var isReserved;
@@ -16,6 +17,7 @@ var isReserved;
 	function datePicker() {
         // Get all reservations to this array
         getAllReservations(userID, currentRoom);
+		getEveryReservation(currentRoom);
         // Get all events to this array for calendar display
         events = createEvents(rArray);
 
@@ -74,16 +76,25 @@ var isReserved;
             this.className = className;
 
         };
-
+	
+		for(var j = 0; j < redArray.length; j++) {
+			var m = redArray[j].split(".");
+            console.log("redarray" + m);
+            var mewdate = m[2] + "/" + m[1] + "/" + m[0];
+			console.log(mewdate);
+            eventss[new Date(mewdate)] = new Event("asd", "eventcolor2");
+        }
+		
        for(var i = 0; i < rArray.length; i++) {
 			var n = rArray[i].split(".");
-			var na = $.datepicker.formatDate('yy.mm.dd', new Date(n[2], n[1] - 1, n[0]));
             
             var newdate = n[2] + "/" + n[1] + "/" + n[0];
 			console.log(newdate);
-            eventss[new Date(newdate)] = new Event("Varattu", "eventcolor");
-			console.log(eventss);
+            eventss[new Date(newdate)] = new Event("Varattu", "eventcolor1");
+			
         }
+		
+		
 
         return eventss;
     }
@@ -151,9 +162,26 @@ var isReserved;
 			data: { currentroom: roomID, userid: userID },
             async: false,
             success: function(result){
-				reservationArray = result;
 				rArray = result;
 				console.log("Success: " + rArray);
+			}
+        });
+
+    }
+	
+	// Function for getting all room reservations
+    function getEveryReservation(roomID) {
+		
+        $.ajax({
+            type: 'POST',
+            url: 'php/geteveryreservation.php',
+            dataType: 'json',
+			data: { currentroom: roomID},
+            async: false,
+            success: function(result){
+				redArray = result;
+				alert(redArray);
+				console.log("Success: " + redArray);
 			}
         });
 
