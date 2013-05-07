@@ -30,8 +30,8 @@ if(!isset($_SESSION["logged_in"])) {
 </head>
 
 <body>
-
 	<div class="logout"><a href ="php/logout.php">Kirjaudu ulos</a></div>
+	<div id="rss" class="logout"><a href="#">RSS</a></div>
 	<div id="tabs">
 		<ul>
 		</ul>
@@ -39,8 +39,7 @@ if(!isset($_SESSION["logged_in"])) {
 		<div id="datepicker"></div>
 	</div>
     <div id="dialog-confirm"></div>
-    
-
+	<div id="dialog-rss"></div>
 </body>
 
 </html>

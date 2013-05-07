@@ -14,6 +14,17 @@ var isReserved;
 	updateTabs();
 	datePicker();
 	
+	$('#rss').click(function() {
+		$.ajax({
+            type: 'POST',
+            url: 'xml/db_to_xml.php',
+            async: false,
+            success: function(result){
+					showDialogRSS();
+			}
+        });
+    });
+	
 	function datePicker() {
         // Get all reservations to this array
         getAllReservations(userID, currentRoom);
@@ -57,6 +68,28 @@ var isReserved;
                             
                             // Must have at least one button for some reason?!
                             Cancel: function() {      
+                                $(this).dialog().find('.ui-dialog-buttonpane button:last'); 
+                                $( this ).dialog( "close" );
+                            }
+                        }
+                    });
+                });
+	}
+	
+	function showDialogRSS() {
+		$(function() {
+                
+                    $( "#dialog-rss" ).dialog({
+
+                        resizable: false,
+                        height: 440,
+                        width: 440,
+                        modal: true,
+                        
+                        buttons: {                            
+                            
+                            // Must have at least one button for some reason?!
+                            Close: function() {      
                                 $(this).dialog().find('.ui-dialog-buttonpane button:last'); 
                                 $( this ).dialog( "close" );
                             }
