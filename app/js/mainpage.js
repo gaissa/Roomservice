@@ -1,4 +1,4 @@
-// Checks if user exists
+﻿// Checks if user exists
 var userExists;
 // Checks if email exists
 var emailExists;
@@ -13,12 +13,12 @@ function validateEmail(epost) {
 	var emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 	
 	if (epost === "") {
-			$("label#email_error").text("Field required");
+			$("label#email_error").text("Kenttä vaaditaan");
 			$("label#email_error").show();
 			$("input#email").focus();
 			return false;
 	} else if (!emailRegex.test(epost)) {
-			$("label#email_error").text("Give valid email address");
+			$("label#email_error").text("Anna validi sähköpostiosoite");
 			$("label#email_error").show();
 			$("input#email").focus();
 			return false;
@@ -28,12 +28,12 @@ function validateEmail(epost) {
 // Checks if username is valid
 function validateUsername(usernamee) {
 	if (usernamee == "") {
-			$("label#name_error").text("Field required");
+			$("label#name_error").text("Kenttä vaaditaan");
 			$("label#name_error").show();
 			$("input#name").focus();
 			return false;
 		} else if (usernamee.length < 4) {
-			$("label#name_error").text("Must have more than 5 letters");
+			$("label#name_error").text("Täytyy olla enemmän kuin 5 kirjainta");
 			$("label#name_error").show();
 			$("input#name").focus();
 			return false;
@@ -44,12 +44,12 @@ function validateUsername(usernamee) {
 // Checks if first password field is valid
 function validatePassword1(pw) {
 	if (pw == "") {
-			$("label#password_error1").text("Field required");
+			$("label#password_error1").text("Kenttä vaaditaan");
 			$("label#password_error1").show();
 			$("input#password1").focus();
 			return false;
 		} else if (pw.length < 7) {
-			$("label#password_error1").text("Must have more than 8 letters");
+			$("label#password_error1").text("Täytyy olla enemmän kuin 8 kirjainta");
 			$("label#password_error1").show();
 			$("input#password1").focus();
 			return false;
@@ -60,12 +60,12 @@ function validatePassword1(pw) {
 // Checks if second password field is valid
 function validatePassword2(pw) {
 	if (pw == "") {
-			$("label#password_error2").text("Field required");
+			$("label#password_error2").text("Kenttä vaaditaan");
 			$("label#password_error2").show();
 			$("input#password2").focus();
 			return false;
 		} else if (pw.length < 7) {
-			$("label#password_error2").text("Must have more than 8 letters");
+			$("label#password_error2").text("Täytyy olla enemmän kuin 8 kirjainta");
 			$("label#password_error2").show();
 			$("input#password2").focus();
 			return false;
@@ -90,19 +90,19 @@ function validateData(dataArray) {
 			  if ((userExists === 0) && (emailExists === 0)) {
 					sendData(dataArray);
 			  } else if (userExists === 1) {
-					$("label#name_error").text("Username already exists");
+					$("label#name_error").text("Käyttäjänimi on jo käytössä");
 					$("label#name_error").show();
 					console.log('user exists');					
 			  } 
 			  if (emailExists === 1) {
-					$("label#email_error").text("Email already exists");
+					$("label#email_error").text("Sähköpostiosoite on jo käytössä");
 					$("label#email_error").show();
 					console.log('email exists');
 			  } 
 			  if ((userExists === 1) && (emailExists === 1)) {
-					$("label#name_error").text("Username already exists");
+					$("label#name_error").text("Käyttäjänimi on jo käytössä");
 					$("label#name_error").show();
-					$("label#email_error").text("Email already exists");
+					$("label#email_error").text("Sähköpostiosoite on jo käytössä");
 					$("label#email_error").show();
 					console.log ('user and email exist');
 			  }
@@ -127,8 +127,8 @@ function sendData(dataArray) {
 			  $('div#reg_panel').hide();	
 			  $('#message_panel').show();
 			  $('#message_panel').html("<div id='message'></div>");
-			  $('#message').html("<h2>Registration complete!</h2>")
-			  .append("<p>You can now login.</p>")  
+			  $('#message').html("<h2>Rekisteröityminen onnistui!</h2>")
+			  .append("<p>Voit nyt kirjautua sisään.</p>")  
 			  .hide()
 			  .fadeIn(1000, function() {
 				$('#message').append("<img id='checkmark' src='img/check.png' />");

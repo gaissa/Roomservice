@@ -4,6 +4,16 @@ body {
     background: url('../img/darkdenim3.png') repeat 0 0 #555;
 }
 
+.logout a {
+	text-decoration: none;
+	background-color: #FFFFFF;
+	color: #000000;
+	position:relative;
+	float: right;
+	margin-top:5px;
+	margin-right:5px;
+}
+
 /* ****************************************************************************/
 /* CALENDAR */
 

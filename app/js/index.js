@@ -167,12 +167,9 @@ var rArray = [];
         },
 
         function(data) {
-        
-            //alert("RESERVATION: " + data.restext + "\nDATE: " + date + "\nIS RESERVED: " + data.isreserved);            
-            
+                    
             // If date has reservations, show DELETE button.
             if(data.isreserved === true) {
-				alert("RESTEXT" + data.restext);
                 $('#dialog-confirm').text(data.restext);
                 $('#dialog-confirm').parent().find("span.ui-dialog-title").html(date);
                 

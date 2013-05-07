@@ -1,7 +1,7 @@
 <?php
 
      // Database config.
-    require_once('config.php');
+    require_once('../conf/config.php');
 	$currentRoom = $_POST['currentroom'];
 	$userID = $_POST['userid'];
 

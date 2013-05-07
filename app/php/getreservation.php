@@ -1,6 +1,6 @@
 <?php
     // Database config.
-    require_once('config.php');
+    require_once('../conf/config.php');
 	// Json header
 	header("Content-Type: application/json", true);
 	// Json array from JS

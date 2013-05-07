@@ -1,5 +1,5 @@
 <?php
-require_once('config.php');
+require_once('../conf/config.php');
 header("Content-Type: application/json", true);
 
 $json = $_POST['dataArray'];

@@ -59,8 +59,17 @@ body {
 }
 
 #registertable {
-	margin-left: 150px;
+	margin-left: 100px;
 	margin-right: auto;
+	border-spacing: 1;
+	padding: 0;
+	text-align: left;
+}
+
+#logintable {
+	border-spacing: 1;
+	padding: 0;
+	text-align: left;
 }
 
 #message { 	
@@ -96,7 +105,7 @@ p.reg {
 
 .pointer {
 	cursor:pointer;
-	float:left;
+	float:right;
 }
 
 .pointerlogin {

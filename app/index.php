@@ -5,7 +5,6 @@ if(!isset($_SESSION["logged_in"])) {
 	header("location:mainpage.html");
 } 
 
-//print_r($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +29,7 @@ if(!isset($_SESSION["logged_in"])) {
 
 <body>
 
-  
+	<div class="logout"><a href ="php/logout.php">Kirjaudu ulos</a></div>
 	<div id="tabs">
 		<ul>
 		</ul>

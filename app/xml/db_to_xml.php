@@ -1,7 +1,7 @@
 <?php
 
 #database config
-require_once('config.php');
+require_once('../conf/config.php');
 
 #database connection
 try {
