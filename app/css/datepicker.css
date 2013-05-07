@@ -6,8 +6,19 @@ body {
 
 .logout a {
 	text-decoration: none;
-	background-color: #FFFFFF;
-	color: #000000;
+	background-color: #FFF;
+	color: #555;
+	position:relative;
+	float: right;
+	margin-top:5px;
+	margin-right:5px;
+    padding: 8px;
+}
+
+.logout a:hover {
+	text-decoration: none;
+	background-color: #555;
+	color: #fff;
 	position:relative;
 	float: right;
 	margin-top:5px;
@@ -147,7 +158,7 @@ textarea#restextarea {
 
     font-weight: bold;
     text-align: center;
-    color: #fff;
+    color: #000;
 }
 
 /* Default for the cells. Not in use. */
