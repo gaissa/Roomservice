@@ -12,6 +12,14 @@ body {
 	float: right;
 	margin-top:5px;
 	margin-right:5px;
+    padding: 8px;
+}
+
+textarea#restextarea {
+	width: 396px;
+	height: 210px;	
+	padding: 5px;
+	font-family: Tahoma, sans-serif;	
 }
 
 /* ****************************************************************************/
@@ -134,12 +142,22 @@ body {
     color: #666666;
 }
 
+/* The cell links and such */
+.ui-datepicker td span, .ui-datepicker td a:hover {
+
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+}
+
 /* Default for the cells. Not in use. */
 .ui-datepicker-calendar .ui-state-default {
+    
 }
 
 /* Hover + Current date highlight. Not in use */
 .ui-datepicker-calendar .ui-state-hover {
+    
 }
 
 /* Non-selectable cells. Not in use. */
@@ -175,7 +193,14 @@ body {
 .eventcolor {
 
     background-color: white !important;
-    background-image:none !important;   
+    background-image: none !important; 
+}
+
+/* Event style #1. < means direct descendant/child (as opposed to any level deep descendant when just space is used). */
+.eventcolor a:hover{
+
+    background-color: #555 !important;
+    background-image: none !important;       
 }
 
 /* ****************************************************************************/
@@ -312,6 +337,15 @@ body {
     text-decoration: none;
 }
 
+/* TAB link style */
+.ui-tabs .ui-tabs-nav li a:hover {
+    font: 32pt sans-serif;
+    color: #fff;
+    background: #000;   
+    padding: .1em 1em;
+    text-decoration: none;
+}
+
 /* COMMENT HERE */
 .ui-tabs .ui-tabs-nav li.ui-tabs-active {   
 }
@@ -344,11 +378,4 @@ body {
     border-width: 0;
     padding: 1em 1.4em;
     background: none;
-}
-
-textarea#restextarea {
-	width: 396px;
-	height: 210px;	
-	padding: 5px;
-	font-family: Tahoma, sans-serif;	
 }

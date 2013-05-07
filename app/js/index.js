@@ -77,7 +77,7 @@ var rArray = [];
             
             var newdate = n[2] + "/" + n[1] + "/" + n[0];
 			console.log(newdate);
-            eventss[new Date(newdate)] = new Event("Valentines Day", "eventcolor");
+            eventss[new Date(newdate)] = new Event("Varattu", "eventcolor");
 			console.log(eventss);
         }
 
