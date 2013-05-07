@@ -113,6 +113,7 @@ var isReserved;
 					index = $("#tabs").tabs('option', 'active');
 					currentRoom = rooms[index];
 					getAllReservations(userID, currentRoom);
+					getEveryReservation(currentRoom);
 					events = createEvents(rArray);
 					$("#datepicker").datepicker("refresh");
 					console.log("Clicked tab " + index + ", room_ID = " + rooms[index]);
@@ -128,6 +129,7 @@ var isReserved;
 					index = $("#tabs").tabs('option', 'active');
 					currentRoom = rooms[index];
 					getAllReservations(userID, currentRoom);
+					getEveryReservation(currentRoom);
 					events = createEvents(rArray);
 					$("#datepicker").datepicker("refresh");
 					console.log("Clicked tab " + index + ", room_ID = " + rooms[index]);
@@ -180,7 +182,6 @@ var isReserved;
             async: false,
             success: function(result){
 				redArray = result;
-				alert(redArray);
 				console.log("Success: " + redArray);
 			}
         });
@@ -212,6 +213,7 @@ var isReserved;
                 newButton.button().click(function () {                    
                     delDate(date);
 					getAllReservations(userID, currentRoom);
+					getEveryReservation(currentRoom);
 					// Get all events to this array for calendar display
 					events = createEvents(rArray);
 					$("#datepicker").datepicker("refresh");
@@ -237,7 +239,8 @@ var isReserved;
                 newButton.button().click(function () {
 					var res_text = $('textarea#restextarea').val();
 					addReservation(date, res_text, userID, currentRoom);
-					getAllReservations(userID, currentRoom);					
+					getAllReservations(userID, currentRoom);	
+					getEveryReservation(currentRoom);					
 					events = createEvents(rArray);					
 					$("#datepicker").datepicker("refresh");
 					$('#dialog-confirm').dialog( "close" );  
@@ -253,7 +256,6 @@ var isReserved;
 	
 	// Function for adding reservation
     function addReservation(datee, rese_text,userID, currentRoom) {
-        alert(datee + " " + rese_text + " " + userID + " " +  currentRoom);
         // Array containing date + room id
         var dataArray = { date: datee, reservationtext: rese_text, userid: userID, roomid: currentRoom };
 		
@@ -264,7 +266,6 @@ var isReserved;
 			data: { 'dataArray': JSON.stringify(dataArray)},
 			async: false,
             success: function(result){
-				alert("JEE");
 			}
         });
     }
