@@ -21,7 +21,7 @@
 	}
 	
 	//echo json_encode(array("restext" => $reservation, "isreserved" => $room_id));
-	echo json_encode(array("restext" => $reservation['res_text'], "isreserved" => $reserved));
+	echo json_encode(array("restext" => $reservation['res_text'], "isreserved" => $reserved, "resuserid" => $reservation['user_ID']));
 	
 	// Function for getting reservation row
     function getReservation($date, $room_id, $db_host, $db_name, $db_pass) {

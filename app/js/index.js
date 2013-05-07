@@ -1,6 +1,7 @@
 var rArray = [];
-	var events = [];
-	var index;
+var events = [];
+var index;
+var isReserved;
 	
 	$(document).ready(function() {	
 	var rooms = getUserRooms(userID);
@@ -34,9 +35,14 @@ var rArray = [];
 
             onSelect: function(date) {
 				
-                getDate(date, rooms[index]);
-
-                $(function() {
+                getDate(date, rooms[index]);				
+                
+            }
+        });
+	}
+	
+	function showDialog() {
+		$(function() {
                     
                     $( "#dialog-confirm" ).dialog({
 
@@ -55,8 +61,6 @@ var rArray = [];
                         }
                     });
                 });
-            }
-        });
 	}
 
     // Creates events from reservations
@@ -155,21 +159,21 @@ var rArray = [];
 
     }
 
-    // Function for getting specific reservation
+    // Function for getting specific reservation when clicking calendar cell
     function getDate(date, roomid) {
 
-        // Array containing date + room id
-        var dataArray = { date: date, roomid: roomid };
+        // Array containing date + roomid + userid
+        var dataArray = { date: date, roomid: roomid, userid: userID };
 
-        // Post request to getres.php
+        // Post request to getreservation.php
         $.post("php/getreservation.php", {
                "dataArray": JSON.stringify(dataArray)
         },
 
         function(data) {
-                    
-            // If date has reservations, show DELETE button.
-            if(data.isreserved === true) {
+            // If date has reservations, show DELETE button and DIALOG
+            if(data.isreserved === true && data.resuserid == userID) {
+				showDialog();
                 $('#dialog-confirm').text(data.restext);
                 $('#dialog-confirm').parent().find("span.ui-dialog-title").html(date);
                 
@@ -179,23 +183,21 @@ var rArray = [];
                 
                 newButton.button().click(function () {                    
                     delDate(date);
-					// Get all reservations to this array
-					alert("BEFORE ARRAY" +rArray);
 					getAllReservations(userID, currentRoom);
-					alert("AFTER ARRAY" +rArray);
 					// Get all events to this array for calendar display
 					events = createEvents(rArray);
-					//datePicker();
 					$("#datepicker").datepicker("refresh");
                     $('#dialog-confirm').dialog( "close" );                     
                 });
                 
                 buttonSet.append(newButton);
-            }
-
-            // If date has reservations, show ADD button.
-            else {
-            
+			// If someone else has reservations to that room, show ALERT
+            } else if(data.isreserved === true && data.resuserid != userID) {
+				
+				alert("ALREADY RESERVED");
+            // If date has no reservations, show ADD button and DIALOG
+            } else {
+				showDialog();
                 $('#dialog-confirm').text('');                
                 $('#dialog-confirm').parent().find("span.ui-dialog-title").html(date);
                 $('#dialog-confirm').append('<textarea id="restextarea" rows="13" cols="5"></textarea>');
@@ -226,20 +228,6 @@ var rArray = [];
         alert(datee + " " + rese_text + " " + userID + " " +  currentRoom);
         // Array containing date + room id
         var dataArray = { date: datee, reservationtext: rese_text, userid: userID, roomid: currentRoom };
-
-        // Post request to delres.php
-      /*  $.post("php/insertreservation.php", {
-               "dataArray": JSON.stringify(dataArray)
-        },
-
-        function(data) {
-        
-            alert('Varaus luotu');
-                      
-            
-        },
-
-        "json");*/
 		
 		 $.ajax({
             type: 'POST',
