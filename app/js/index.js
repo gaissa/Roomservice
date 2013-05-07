@@ -77,7 +77,7 @@ var rArray = [];
             
             var newdate = n[2] + "/" + n[1] + "/" + n[0];
 			console.log(newdate);
-            eventss[new Date(newdate)] = new Event("Valentines Day", "pink");
+            eventss[new Date(newdate)] = new Event("Valentines Day", "eventcolor");
 			console.log(eventss);
         }
 
@@ -198,7 +198,7 @@ var rArray = [];
             
                 $('#dialog-confirm').text('');                
                 $('#dialog-confirm').parent().find("span.ui-dialog-title").html(date);
-                $('#dialog-confirm').append('<textarea id="restextarea" rows="13" cols="52"></textarea>');
+                $('#dialog-confirm').append('<textarea id="restextarea" rows="13" cols="5"></textarea>');
 								
                 var buttonSet = $('#dialog-confirm').parent().find('.ui-dialog-buttonset');                
                 

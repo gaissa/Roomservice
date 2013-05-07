@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 if(!isset($_SESSION["logged_in"])) {
@@ -25,6 +26,7 @@ if(!isset($_SESSION["logged_in"])) {
 	<script type="text/javascript">var userID = '<?php echo $_SESSION["id"] ?>'</script>	
 	<script type="text/javascript" src="js/index.js"></script>	
 	<script type="text/javascript" src="js/date.js"></script>	
+    
 </head>
 
 <body>

@@ -172,16 +172,10 @@ body {
 }
 
 /* Event style #1. < means direct descendant/child (as opposed to any level deep descendant when just space is used). */
-.pink > a {
+.eventcolor {
 
     background-color: white !important;
-    background-image:none !important;
-}
-
-/* Event style #2. < means direct descendant/child (as opposed to any level deep descendant when just space is used). */
-.green > a {
-    background-color: green;
-    background-image: none;
+    background-image:none !important;   
 }
 
 /* ****************************************************************************/
@@ -350,4 +344,11 @@ body {
     border-width: 0;
     padding: 1em 1.4em;
     background: none;
+}
+
+textarea#restextarea {
+	width: 396px;
+	height: 210px;	
+	padding: 5px;
+	font-family: Tahoma, sans-serif;	
 }
