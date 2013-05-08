@@ -39,7 +39,7 @@ if(!isset($_SESSION["logged_in"])) {
 		<div id="datepicker"></div>
 	</div>
     <div id="dialog-confirm"></div>
-	<div id="dialog-rss"></div>
+    <div id="dialog-rss">RSS-osoite</div>
 </body>
 
 </html>
