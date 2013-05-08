@@ -209,15 +209,12 @@ textarea#restextarea {
 
 .eventcolor2 {
 
-    background-color: #8B1A1A !important;
+    background-color: #555 !important;
     background-image: none !important; 
 }
 
 /* Event style #1. < means direct descendant/child (as opposed to any level deep descendant when just space is used). */
 .eventcolor a:hover{
-
-    background-color: #555 !important;
-    background-image: none !important;       
 }
 
 /* ****************************************************************************/
