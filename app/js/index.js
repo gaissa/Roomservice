@@ -67,7 +67,7 @@ var isReserved;
                         buttons: {                            
                             
                             // Must have at least one button for some reason?!
-                            Cancel: function() {      
+                            "Sulje": function() {      
                                 $(this).dialog().find('.ui-dialog-buttonpane button:last'); 
                                 $( this ).dialog( "close" );
                             }
@@ -89,7 +89,7 @@ var isReserved;
                         buttons: {                            
                             
                             // Must have at least one button for some reason?!
-                            Close: function() {      
+                            "Sulje": function() {      
                                 $(this).dialog().find('.ui-dialog-buttonpane button:last'); 
                                 $( this ).dialog( "close" );
                             }
@@ -241,7 +241,7 @@ var isReserved;
                 
                 var buttonSet = $('#dialog-confirm').parent().find('.ui-dialog-buttonset');                
                 
-                var newButton = $('<button>Delete reservation</button>');
+                var newButton = $('<button>Poista varaus</button>');
                 
                 newButton.button().click(function () {                    
                     delDate(date);
@@ -257,7 +257,7 @@ var isReserved;
 			// If someone else has reservations to that room, show ALERT
             } else if(data.isreserved === true && data.resuserid != userID) {
 				
-				alert("ALREADY RESERVED");
+				alert("PVM ON VARATTU!");
             // If date has no reservations, show ADD button and DIALOG
             } else {
 				showDialog();
@@ -267,7 +267,7 @@ var isReserved;
 								
                 var buttonSet = $('#dialog-confirm').parent().find('.ui-dialog-buttonset');                
                 
-                var newButton = $('<button>Add reservation</button>');
+                var newButton = $('<button>Lisää varaus</button>');
                 
                 newButton.button().click(function () {
 					var res_text = $('textarea#restextarea').val();
