@@ -20,6 +20,7 @@ body {
 	top: 120px;
 	height: 0px;
 	margin-top:auto;
+    background-color: #555;
 	margin-left: auto;
 	margin-right: auto;
 	z-index: 10;
@@ -32,6 +33,7 @@ body {
 
 #reg_panel {
 	width: 600px;
+    background-color: #555;
 	position: relative;
 	top: 100px;
 	height: 0px;
@@ -58,15 +60,20 @@ body {
 	Color: #FFFFFF;
 }
 
-#registertable {
-	margin-left: 100px;
-	margin-right: auto;
+#registertable {    
+    
+	margin-left: auto;
+	margin-right: auto;    
 	border-spacing: 1;
 	padding: 0;
 	text-align: left;
 }
 
 #logintable {
+    
+    margin-left: auto;
+	margin-right: auto;    
+    background-color: #555;
 	border-spacing: 1;
 	padding: 0;
 	text-align: left;
@@ -95,7 +102,7 @@ body {
 }
 
 .regButton { 
-	margin-left: 90px;	 
+	 
 	margin-top: 20px;
 }
 
@@ -143,8 +150,12 @@ p.reg {
     font-size: 20px;
     font-weight: bold;
     position: relative;
-    top: 5px;
-    left: 5px;
+    background-color: #555;
+    margin-left: auto;
+    margin-right: auto;
+    left:-8px;
+    padding:40px;
+    top: 105px;    
     font-family: Calibri, Helvetica, sans-serif;
 }
 .panel_button a:hover {
