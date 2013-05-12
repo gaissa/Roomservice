@@ -2,7 +2,8 @@ body {
 	background-image:url('../img/debut_dark.png');
 	background-repeat: repeat;
 	text-align: center;
-	margin: 0px;
+	margin: auto;
+    border-top: 80px solid #555;
 }
 
 #wrap {
@@ -17,7 +18,7 @@ body {
 #log_panel {
 	width: 400px;
 	position: relative;
-	top: 120px;
+	top: -160px;
 	height: 0px;
 	margin-top:auto;
     background-color: #555;
@@ -35,7 +36,7 @@ body {
 	width: 600px;
     background-color: #555;
 	position: relative;
-	top: 100px;
+	top: -160px;
 	height: 0px;
 	margin-left: auto;
 	margin-right: auto;
