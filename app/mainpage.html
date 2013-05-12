@@ -1,104 +1,121 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Roomservice</title>
-		<link href="css/mainpagestyle.css" rel="stylesheet" />
-		<script src="js/sha1.js"></script>	
-		<script src="js/jquery-1.9.1.min.js"></script>
-		<script src="js/mainpage.js"></script>	
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		
-	</head>	
-	<body>
-	<div id="wrap">
-        		
-			<table class="btn_table">
-				<tr>
-				<td><div class="panel_button" id="login"><a href="#">Kirjaudu</a></div></td>
-				<td><div class="panel_button" id="register"><a href="#">Rekisteröidy</a></div></td>
-				</tr>
-			</table>
-		</div>
-		<div id="log_panel">
-		<form id="logForm" name="loginform" method="post" action="php/login.php">
-		<table id="logintable">
-				<tr>
-				<td><img class="pointerlogin" src="img/close.png" onclick="hide_log();" alt="Close"/></td>
-				</tr>
-				<tr>				
-				<td>
-				<table>
-				<tr>
-				<td>Kirjautuminen</td>
-				</tr>
-				<tr>
-				<td>Käyttäjänimi</td>
-				<td>:</td>
-				<td><input class="inputs" name="username" type="text" id="username"></td>
-				</tr>
-				<tr>
-				<td>Salasana</td>
-				<td>:</td>
-				<td><input class="inputs" name="password" type="password" id="password"></td>
-				</tr>
-				<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>	
-				<td><input type="submit" name="Submit" value="Login"></td>
-				</tr>
-				</table>
-				</td>				
-				</tr>
-				</table>
-				</form>
-</div>
-<div id="reg_panel">
-		<form id="registerForm" name="registerForm" method="POST">
-		<table id="registertable">
-		
-				
-				<tr>
-				<td><p class="reg">Rekisteröityminen</p></td>
-				<td></td>
-				<td><img class="pointer" src="img/close.png" onclick="hide_reg();" alt="Close"/></td>
-				</tr>
-				<tr>
-				<td>Käyttäjänimi</td>
-				<td>:</td>
-				<td><input name="username1" type="text" id="username1" class="inputs"></td>
-				<td><label class="error" for="username1" id="name_error"></label></td>
-				</tr>
-				<tr>
-				<td>Salasana</td>
-				<td>:</td>
-				<td><input name="password1" type="password" id="password1" class="inputs"></td>
-				<td><label class="error" for="password" id="password_error1"></label></td>
-				</tr>
-				<tr>
-				<td>Salasana uudestaan</td>
-				<td>:</td>
-				<td><input name="password2" type="password" id="password2" class="inputs"></td>
-				<td><label class="error" for="username1" id="password_error2"></label></td>
-				</tr>
-				<tr>
-				<td>Sähköposti</td>
-				<td>:</td>
-				<td><input name="email" type="text" id="email" class="inputs"></td>
-				<td><label class="error" for="email" id="email_error"></label></td>
-				</tr>
-				<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>	
-				<td><input class="regButton" type="submit" id="submitReg" value="Register"></td>
-				</tr>
-				
-							
-				
-				</table>
-				</form>				
-				</div>
-		<div id="message_panel" class="reg_message"></div>
-	</div>	
-	
-	</body>
+    <head>
+        <title>Roomservice</title>
+        <link href="css/mainpagestyle.css" rel="stylesheet" />
+        <script src="js/sha1.js"></script>
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/mainpage.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    </head>
+
+    <body>
+
+    <div id="wrap">
+
+        <table class="btn_table">
+
+            <tr>
+                <td><div class="panel_button" id="login"><a href="#">Kirjaudu</a></div></td>
+                <td><div class="panel_button" id="register"><a href="#">Rekisteröidy</a></div></td>
+            </tr>
+
+        </table>
+
+        <div id="log_panel">
+
+            <form id="logForm" name="loginform" method="post" action="php/login.php">
+            <table id="logintable">
+
+                <tr>
+                    <td><img class="pointerlogin" src="img/close.png" onclick="hide_log();" alt="Close"/></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>Kirjautuminen</td>
+                            </tr>
+
+                            <tr>
+                                <td>Käyttäjänimi</td>
+                                <td>:</td>
+                                <td><input class="inputs" name="username" type="text" id="username"></td>
+                            </tr>
+                            <tr>
+                                <td>Salasana</td>
+                                    <td>:</td>
+                                <td><input class="inputs" name="password" type="password" id="password"></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td><input type="submit" name="Submit" value="Login"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+            </table>
+            </form>
+
+        </div>
+
+        <div id="reg_panel">
+
+            <form id="registerForm" name="registerForm" method="POST">
+            <table id="registertable">
+
+                <tr>
+                    <td><p class="reg">Rekisteröityminen</p></td>
+                    <td></td>
+                    <td><img class="pointer" src="img/close.png" onclick="hide_reg();" alt="Close"/></td>
+                </tr>
+
+                <tr>
+                    <td>Käyttäjänimi</td>
+                    <td>:</td>
+                    <td><input name="username1" type="text" id="username1" class="inputs"></td>
+                    <td><label class="error" for="username1" id="name_error"></label></td>
+                </tr>
+
+                <tr>
+                    <td>Salasana</td>
+                    <td>:</td>
+                    <td><input name="password1" type="password" id="password1" class="inputs"></td>
+                    <td><label class="error" for="password" id="password_error1"></label></td>
+                </tr>
+
+                <tr>
+                    <td>Salasana uudestaan</td>
+                    <td>:</td>
+                    <td><input name="password2" type="password" id="password2" class="inputs"></td>
+                    <td><label class="error" for="username1" id="password_error2"></label></td>
+                </tr>
+
+                <tr>
+                    <td>Sähköposti</td>
+                    <td>:</td>
+                    <td><input name="email" type="text" id="email" class="inputs"></td>
+                    <td><label class="error" for="email" id="email_error"></label></td>
+                </tr>
+
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td><input class="regButton" type="submit" id="submitReg" value="Register"></td>
+                </tr>
+
+            </table>
+            </form>
+
+        </div>
+
+        <div id="message_panel" class="reg_message"></div>
+
+    </div>
+
+</body>
 </html>

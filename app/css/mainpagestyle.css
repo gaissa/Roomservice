@@ -1,138 +1,138 @@
 body {
-	background-image:url('../img/debut_dark.png');
-	background-repeat: repeat;
-	text-align: center;
-	margin: auto;
+    background-image:url('../img/debut_dark.png');
+    background-repeat: repeat;
+    text-align: center;
+    margin: auto;
     border-top: 80px solid #555;
 }
 
 #wrap {
-	margin-left: auto;
-	margin-right: auto;
-	width: 1200px;
-	height:400px;
-	text-align: center;	
-	border: 0px solid white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+    height:400px;
+    text-align: center;
+    border: 0px solid white;
 }
 
 #log_panel {
-	width: 400px;
-	position: relative;
-	top: -160px;
-	height: 0px;
-	margin-top:auto;
+    width: 400px;
+    position: relative;
+    top: 100px;
+    height: 0px;
+    margin-top:auto;
     background-color: #555;
-	margin-left: auto;
-	margin-right: auto;
-	z-index: 10;
-	overflow: hidden;
-	text-align: left;
-	font-family: Calibri, Helvetica, sans-serif;
-	Color: #FFFFFF;
-	border: 0px solid white;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 10;
+    overflow: hidden;
+    text-align: left;
+    font-family: Calibri, Helvetica, sans-serif;
+    Color: #FFFFFF;
+    border: 0px solid white;
 }
 
 #reg_panel {
-	width: 600px;
+    width: 600px;
     background-color: #555;
-	position: relative;
-	top: -160px;
-	height: 0px;
-	margin-left: auto;
-	margin-right: auto;
-	overflow: hidden;
-	text-align: left;
-	font-family: Calibri, Helvetica, sans-serif;
-	Color: #FFFFFF;
-	border: 0px solid white;
+    position: relative;
+    top: 100px;
+    height: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    text-align: left;
+    font-family: Calibri, Helvetica, sans-serif;
+    Color: #FFFFFF;
+    border: 0px solid white;
 }
 
 .reg_message {
-	width: 600px;
-	position: relative;
-	top: 100px;
-	height: 400px;
-	margin-left: auto;
-	margin-right: auto;
-	z-index: 10;
-	overflow: hidden;
-	text-align: left;
-	font-family: Calibri, Helvetica, sans-serif;
-	Color: #FFFFFF;
+    width: 600px;
+    position: relative;
+    top: 100px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 10;
+    overflow: hidden;
+    text-align: left;
+    font-family: Calibri, Helvetica, sans-serif;
+    Color: #FFFFFF;
 }
 
-#registertable {    
-    
-	margin-left: auto;
-	margin-right: auto;    
-	border-spacing: 1;
-	padding: 0;
-	text-align: left;
+#registertable {
+
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 1;
+    padding: 0;
+    text-align: left;
 }
 
 #logintable {
-    
+
     margin-left: auto;
-	margin-right: auto;    
+    margin-right: auto;
     background-color: #555;
-	border-spacing: 1;
-	padding: 0;
-	text-align: left;
+    border-spacing: 1;
+    padding: 0;
+    text-align: left;
 }
 
-#message { 	
-	position:relative;
-	width: 250px;
-	left: 220px; 
+#message {
+    position:relative;
+    width: 250px;
+    left: 220px;
 }
-			
-#checkmark { 
-	position: relative;
-	top: -73px;
-	left: -65px;
+
+#checkmark {
+    position: relative;
+    top: -73px;
+    left: -65px;
 }
 
 .error {
-	font-family: Calibri, Helvetica, sans-serif;
-	font-size: 12px;
-	color:red;
+    font-family: Calibri, Helvetica, sans-serif;
+    font-size: 12px;
+    color:red;
 }
 
-.inputs { 
-	width:150px;
+.inputs {
+    width:150px;
 }
 
-.regButton { 
-	 
-	margin-top: 20px;
+.regButton {
+
+    margin-top: 20px;
 }
 
 p.reg {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .pointer {
-	cursor:pointer;
-	float:right;
+    cursor:pointer;
+    float:right;
 }
 
 .pointerlogin {
-	cursor:pointer;
-	float:right;
+    cursor:pointer;
+    float:right;
 }
 
 .logintable {
-	position:relative;
-	margin-left:auto;
-	margin-right:auto;
-	background: #202020;
+    position:relative;
+    margin-left:auto;
+    margin-right:auto;
+    background: #202020;
 }
 
 .btn_table {
-	border: 0px solid #FFFFFF;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 50px;
+    border: 0px solid #FFFFFF;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
 }
 
 .panel_button {
@@ -156,9 +156,9 @@ p.reg {
     margin-right: auto;
     left:-8px;
     padding:40px;
-    top: 105px;    
+    top: 105px;
     font-family: Calibri, Helvetica, sans-serif;
 }
 .panel_button a:hover {
-	color: #999999;
+    color: #999999;
 }
