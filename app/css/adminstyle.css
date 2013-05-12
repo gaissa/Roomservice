@@ -24,3 +24,16 @@ padding: 8px;
 margin: 8px;
 
 }
+
+#wrap {
+   
+    font-size: 14px; 
+    padding-top: 32px;
+    padding-left: 16px;
+    margin-left: 15px;
+    color: #fff;
+    margin-right: 15px;    
+    height:82px;
+    background-color: #555;   
+    border: 0px solid white;
+}

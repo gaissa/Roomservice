@@ -91,8 +91,7 @@
 
                     <td colspan="6" align="left" bgcolor="#555">
                     <input name="delete" type="submit" id="delete" value="Poista"></td>
-
-                </tr>
+                </tr>                
 
                 <?php
 
@@ -112,8 +111,27 @@
                 </table>
                 </form>
             </td>
+            
         </tr>
+        
     </table>
+    
+    <div id="wrap">
+    
+        <form name="add" action="add_admin.php" method="post"> 
+    
+            Id <input type="text" name="id">
+            Käyttäjätaso <input type="text" name = "taso"> 
+            nimi <input type="text" name = "nimi">
+            email <input type="text" name = "email">
+            salasana <input type="text" name = "salasana">
+        
+            <input align="left" type="submit" value="Lisää">    
+        
+        </form>   
+        
+     </div>
+               
 
     <table border="0" cellspacing="1" cellpadding="0">
         <tr>
@@ -183,6 +201,19 @@
             </td>
         </tr>
     </table>
+    
+    <div id="wrap">
+    
+        <form name="add" action="#" method="post"> 
+    
+            Id <input type="text" name="id">
+            Tunnus <input type="text" name = "tunnus">             
+        
+            <input align="left" type="submit" value="Lisää">    
+        
+        </form>   
+        
+     </div>
 
 </body>
 
