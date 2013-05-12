@@ -3,32 +3,36 @@ var redArray = [];
 var events = [];
 var index;
 var isReserved;
-	
-	$(document).ready(function() {	
-	var rooms = getUserRooms(userID);
-	
-	// ID of currently selected room
-	var currentRoom = rooms[0];
-	
-	createTabs();
-	updateTabs();
-	datePicker();
-	
-	$('#rss').click(function() {
-		$.ajax({
+
+    $(document).ready(function() {
+    var rooms = getUserRooms(userID);
+
+    // ID of currently selected room
+    var currentRoom = rooms[0];
+
+    createTabs();
+    updateTabs();
+    datePicker();
+
+    $('#rss').click(function() {
+
+        $.ajax( {
             type: 'POST',
             url: 'xml/db_to_xml.php',
             async: false,
             success: function(result){
-					showDialogRSS();
-			}
+                    showDialogRSS();
+            }
         });
+
     });
-	
-	function datePicker() {
+
+    function datePicker() {
+
         // Get all reservations to this array
         getAllReservations(userID, currentRoom);
-		getEveryReservation(currentRoom);
+        getEveryReservation(currentRoom);
+
         // Get all events to this array for calendar display
         events = createEvents(rArray);
 
@@ -47,56 +51,61 @@ var isReserved;
             },
 
             onSelect: function(date) {
-				
-                getDate(date, rooms[index]);				
-                
+
+                getDate(date, rooms[index]);
+
             }
         });
-	}
-	
-	function showDialog() {
-		$(function() {
-                    
-                    $( "#dialog-confirm" ).dialog({
+    }
 
-                        resizable: false,
-                        height: 440,
-                        width: 440,
-                        modal: true,
-                        
-                        buttons: {                            
-                            
-                            // Must have at least one button for some reason?!
-                            "Sulje": function() {      
-                                $(this).dialog().find('.ui-dialog-buttonpane button:last'); 
-                                $( this ).dialog( "close" );
-                            }
-                        }
-                    });
-                });
-	}
-	
-	function showDialogRSS() {
-		$(function() {
-                
-                    $( "#dialog-rss" ).dialog({
+    function showDialog() {
 
-                        resizable: false,
-                        height: 440,
-                        width: 440,
-                        modal: true,
-                        
-                        buttons: {                            
-                            
-                            // Must have at least one button for some reason?!
-                            "Sulje": function() {      
-                                $(this).dialog().find('.ui-dialog-buttonpane button:last'); 
-                                $( this ).dialog( "close" );
-                            }
-                        }
-                    });
-                });
-	}
+        $(function() {
+
+            $( "#dialog-confirm" ).dialog({
+
+                resizable: false,
+                height: 440,
+                width: 440,
+                modal: true,
+
+                buttons: {
+
+                    // Must have at least one button for some reason?!
+                    "Sulje": function() {
+                        $(this).dialog().find('.ui-dialog-buttonpane button:last');
+                        $( this ).dialog( "close" );
+                    }
+                }
+            });
+        });
+    }
+
+    function showDialogRSS() {
+    
+        $(function() {
+
+            $('#dialog-rss').text("RSS-TEKSTI ASETETAAN");            
+
+            $( "#dialog-rss" ).dialog({
+
+                resizable: false,
+                height: 440,
+                width: 440,
+                modal: true,
+
+                buttons: {
+
+                    // Must have at least one button for some reason?!
+                    "Sulje": function() {
+
+                        $(this).dialog().find('.ui-dialog-buttonpane button:last');
+                        $(this).dialog( "close" );
+                    }
+                }
+            });
+        });
+    }
 
     // Creates events from reservations
     function createEvents(rArray) {
@@ -109,114 +118,112 @@ var isReserved;
             this.className = className;
 
         };
-	
-		for(var j = 0; j < redArray.length; j++) {
-			var m = redArray[j].split(".");
+
+        for(var j = 0; j < redArray.length; j++) {
+            var m = redArray[j].split(".");
             console.log("redarray" + m);
             var mewdate = m[2] + "/" + m[1] + "/" + m[0];
-			console.log(mewdate);
+            console.log(mewdate);
             eventss[new Date(mewdate)] = new Event("asd", "eventcolor2");
         }
-		
+
        for(var i = 0; i < rArray.length; i++) {
-			var n = rArray[i].split(".");
-            
+            var n = rArray[i].split(".");
+
             var newdate = n[2] + "/" + n[1] + "/" + n[0];
-			console.log(newdate);
+            console.log(newdate);
             eventss[new Date(newdate)] = new Event("Varattu", "eventcolor1");
-			
+
         }
-		
-		
 
         return eventss;
     }
-	
-	// Creates tabs for selecting a room.
-	function createTabs() {
-		
-		console.log(rooms.length);
-		
-		for(var i = 0 ; i < rooms.length ; i++) {
-			
-			$("#tabs").find("ul").append('<li><a href="#datepicker">' + rooms[i] + '</a></li>').click(
-			
-				// Tabs' onClick function. Posts 
-				function(){
-					index = $("#tabs").tabs('option', 'active');
-					currentRoom = rooms[index];
-					getAllReservations(userID, currentRoom);
-					getEveryReservation(currentRoom);
-					events = createEvents(rArray);
-					$("#datepicker").datepicker("refresh");
-					console.log("Clicked tab " + index + ", room_ID = " + rooms[index]);
-			});
-			
-			console.log(rooms[i]);
-		}
-		
-		$("#tabs").tabs();
-	}
-	
-	function updateTabs(){
-					index = $("#tabs").tabs('option', 'active');
-					currentRoom = rooms[index];
-					getAllReservations(userID, currentRoom);
-					getEveryReservation(currentRoom);
-					events = createEvents(rArray);
-					$("#datepicker").datepicker("refresh");
-					console.log("Clicked tab " + index + ", room_ID = " + rooms[index]);
-	}
-		
-	function getUserRooms(userID) {
-		
-		var roomArray;
+
+    // Creates tabs for selecting a room.
+    function createTabs() {
+
+        console.log(rooms.length);
+
+        for(var i = 0 ; i < rooms.length ; i++) {
+
+            $("#tabs").find("ul").append('<li><a href="#datepicker">' + rooms[i] + '</a></li>').click(
+
+                // Tabs' onClick function. Posts
+                function(){
+                    index = $("#tabs").tabs('option', 'active');
+                    currentRoom = rooms[index];
+                    getAllReservations(userID, currentRoom);
+                    getEveryReservation(currentRoom);
+                    events = createEvents(rArray);
+                    $("#datepicker").datepicker("refresh");
+                    console.log("Clicked tab " + index + ", room_ID = " + rooms[index]);
+            });
+
+            console.log(rooms[i]);
+        }
+
+        $("#tabs").tabs();
+    }
+
+    function updateTabs(){
+                    index = $("#tabs").tabs('option', 'active');
+                    currentRoom = rooms[index];
+                    getAllReservations(userID, currentRoom);
+                    getEveryReservation(currentRoom);
+                    events = createEvents(rArray);
+                    $("#datepicker").datepicker("refresh");
+                    console.log("Clicked tab " + index + ", room_ID = " + rooms[index]);
+    }
+
+    function getUserRooms(userID) {
+
+        var roomArray;
 
         $.ajax({
             type: 'POST',
             url: 'php/getuserrooms.php',
-			data: {userid: userID},
+            data: {userid: userID},
             dataType: 'json',
             async: false,
             success: function(result){
-					console.log(result);
-					roomArray = result;
-				}
+                    console.log(result);
+                    roomArray = result;
+                }
         });
 
         return roomArray;
-	}
-	
+    }
+
     // Function for getting all room reservations
     function getAllReservations(userID, roomID) {
-		
+
         $.ajax({
             type: 'POST',
             url: 'php/getallreservations.php',
             dataType: 'json',
-			data: { currentroom: roomID, userid: userID },
+            data: { currentroom: roomID, userid: userID },
             async: false,
             success: function(result){
-				rArray = result;
-				console.log("Success: " + rArray);
-			}
+                rArray = result;
+                console.log("Success: " + rArray);
+            }
         });
 
     }
-	
-	// Function for getting all room reservations
+
+    // Function for getting all room reservations
     function getEveryReservation(roomID) {
-		
+
         $.ajax({
             type: 'POST',
             url: 'php/geteveryreservation.php',
             dataType: 'json',
-			data: { currentroom: roomID},
+            data: { currentroom: roomID},
             async: false,
             success: function(result){
-				redArray = result;
-				console.log("Success: " + redArray);
-			}
+                redArray = result;
+                console.log("Success: " + redArray);
+            }
         });
 
     }
@@ -233,102 +240,103 @@ var isReserved;
         },
 
         function(data) {
+
             // If date has reservations, show DELETE button and DIALOG
             if(data.isreserved === true && data.resuserid == userID) {
-				showDialog();
+
+                showDialog();
                 $('#dialog-confirm').text(data.restext);
                 $('#dialog-confirm').parent().find("span.ui-dialog-title").html(date);
-                
-                var buttonSet = $('#dialog-confirm').parent().find('.ui-dialog-buttonset');                
-                
+
+                var buttonSet = $('#dialog-confirm').parent().find('.ui-dialog-buttonset');
+
                 var newButton = $('<button>Poista varaus</button>');
-                
-                newButton.button().click(function () {                    
+
+                newButton.button().click(function () {
                     delDate(date);
-					getAllReservations(userID, currentRoom);
-					getEveryReservation(currentRoom);
-					// Get all events to this array for calendar display
-					events = createEvents(rArray);
-					$("#datepicker").datepicker("refresh");
-                    $('#dialog-confirm').dialog( "close" );                     
+                    getAllReservations(userID, currentRoom);
+                    getEveryReservation(currentRoom);
+
+                    // Get all events to this array for calendar display
+                    events = createEvents(rArray);
+                    $("#datepicker").datepicker("refresh");
+                    $('#dialog-confirm').dialog( "close" );
                 });
-                
+
                 buttonSet.append(newButton);
-			// If someone else has reservations to that room, show ALERT
+
+            // If someone else has reservations to that room, show ALERT
             } else if(data.isreserved === true && data.resuserid != userID) {
-				
-				alert("PVM ON VARATTU!");
+
+                alert("PVM ON VARATTU!");
+
             // If date has no reservations, show ADD button and DIALOG
             } else {
-				showDialog();
-                $('#dialog-confirm').text('');                
+
+                showDialog();
+                $('#dialog-confirm').text('');
                 $('#dialog-confirm').parent().find("span.ui-dialog-title").html(date);
                 $('#dialog-confirm').append('<textarea id="restextarea" rows="13" cols="5"></textarea>');
-								
-                var buttonSet = $('#dialog-confirm').parent().find('.ui-dialog-buttonset');                
-                
+
+                var buttonSet = $('#dialog-confirm').parent().find('.ui-dialog-buttonset');
+
                 var newButton = $('<button>Lisää varaus</button>');
-                
+
                 newButton.button().click(function () {
-					var res_text = $('textarea#restextarea').val();
-					addReservation(date, res_text, userID, currentRoom);
-					getAllReservations(userID, currentRoom);	
-					getEveryReservation(currentRoom);					
-					events = createEvents(rArray);					
-					$("#datepicker").datepicker("refresh");
-					$('#dialog-confirm').dialog( "close" );  
+                    var res_text = $('textarea#restextarea').val();
+                    addReservation(date, res_text, userID, currentRoom);
+                    getAllReservations(userID, currentRoom);
+                    getEveryReservation(currentRoom);
+                    events = createEvents(rArray);
+                    $("#datepicker").datepicker("refresh");
+                    $('#dialog-confirm').dialog( "close" );
                 });
-                
-                buttonSet.append(newButton);                
+
+                buttonSet.append(newButton);
             }
         },
 
         "json");
-        
+
     }
-	
-	// Function for adding reservation
+
+    // Function for adding reservation
     function addReservation(datee, rese_text,userID, currentRoom) {
+
         // Array containing date + room id
         var dataArray = { date: datee, reservationtext: rese_text, userid: userID, roomid: currentRoom };
-		
-		 $.ajax({
+
+        $.ajax( {
             type: 'POST',
             url: 'php/insertreservation.php',
             dataType: 'json',
-			data: { 'dataArray': JSON.stringify(dataArray)},
-			async: false,
-            success: function(result){
-			}
-        });
+            data: { 'dataArray': JSON.stringify(dataArray)},
+            async: false,
+            success: function(result) {
+            }
+        });        
     }
 
     // Function for deleting a specific reservation
     function delDate(date) {
-        
+
         // Array containing date + room id
         var dataArray = { date: date, roomid: currentRoom };
 
-        // Post request to delres.php
-        $.post("php/delres.php", {
-               "dataArray": JSON.stringify(dataArray)
-        },
-
-        function(data) {
-        
-            //alert("RESERVATION: " + data.restext + "\nDATE: " + date + "\nIS RESERVED: " + data.isreserved);
-            
-            clear();
-            
-        },
-
-        "json");
+        $.ajax( {
+            type: 'POST',
+            url: 'php/delres.php',
+            dataType: 'json',
+            data: { 'dataArray': JSON.stringify(dataArray)},
+            async: false,
+            success: function(result) {
+            }
+        });   
     }
 
     // for refreshing the page + updating the database.
     function clear() {
-                              
-        alert("Reservation deleted!");      
-        //location.reload();
+
+        //alert("Varaus poistettu!");
     }
 });
