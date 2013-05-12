@@ -1,0 +1,25 @@
+body {
+    background: url('../img/darkdenim3.png') repeat 0 0 #555;
+}
+
+table {
+
+padding: auto;
+margin: auto;
+margin-top: 40px;
+
+}
+
+input {
+
+padding: 5px;
+margin: 5px;
+
+}
+
+td {
+
+padding: 15px;
+margin: 15px;
+
+}
