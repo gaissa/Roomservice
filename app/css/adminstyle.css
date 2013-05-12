@@ -6,20 +6,21 @@ table {
 
 padding: auto;
 margin: auto;
-margin-top: 40px;
+margin-top: 14px;
+width:100%;
 
 }
 
 input {
 
-padding: 5px;
-margin: 5px;
+padding: 4px;
+margin: 4px;
 
 }
 
 td {
 
-padding: 15px;
-margin: 15px;
+padding: 8px;
+margin: 8px;
 
 }
