@@ -10,81 +10,81 @@ $username = $array['username'];
 $password = $array['password'];
 $email = $array['email'];
 $infoArray;
-	
-	$db = new PDO("mysql:host=$db_host; dbname=$db_name",
+
+    $db = new PDO("mysql:host=$db_host; dbname=$db_name",
                 "$db_user", "$db_pass", array(PDO::ATTR_EMULATE_PREPARES => false,
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-				PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-	
-	$infoArray[0] = checkUsername($db, $username);
-	$infoArray[1] = checkEmail($db, $email);
-	
-	echo json_encode(array("username" => $infoArray[0], "email" => $infoArray[1]));	
-	
-	//echo json_encode(array("email" => $password));	
-	
-	if ($infoArray[0] === 0 && $infoArray[1] === 0) {
-		insertData($db, $username, $password, $email);	
-	}
-	
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+
+    $infoArray[0] = checkUsername($db, $username);
+    $infoArray[1] = checkEmail($db, $email);
+
+    echo json_encode(array("username" => $infoArray[0], "email" => $infoArray[1]));
+
+    //echo json_encode(array("email" => $password));
+
+    if ($infoArray[0] === 0 && $infoArray[1] === 0) {
+        insertData($db, $username, $password, $email);
+    }
+
 
 
 # Checks if username exists
 function checkUsername($db, $username) {
-	
-	$sql = "SELECT * FROM users WHERE username = '$username'";
-	
-	$res = $db->query($sql);
-	$count = $res->rowCount();
-	
-	if ($count >= 1) {
-		$infoArray['user'] = 1;
-	} else {
-		$infoArray['user'] = 0;
-	}
-	
-	return $infoArray['user'];
+
+    $sql = "SELECT * FROM users WHERE username = '$username'";
+
+    $res = $db->query($sql);
+    $count = $res->rowCount();
+
+    if ($count >= 1) {
+        $infoArray['user'] = 1;
+    } else {
+        $infoArray['user'] = 0;
+    }
+
+    return $infoArray['user'];
 }
 
 # Checks if email exists
 function checkEmail($db, $email) {
-	
-	$sql = "SELECT * FROM users WHERE email = '$email'";
-	
-	$res = $db->query($sql);
-	$count = $res->rowCount();
-	//echo 'emailcount' . $count;
-	if ($count >= 1) {
-		$infoArray['email'] = 1;
-	} else {
-		$infoArray['email'] = 0;
-	}
-	
-	return $infoArray['email'];
+
+    $sql = "SELECT * FROM users WHERE email = '$email'";
+
+    $res = $db->query($sql);
+    $count = $res->rowCount();
+    //echo 'emailcount' . $count;
+    if ($count >= 1) {
+        $infoArray['email'] = 1;
+    } else {
+        $infoArray['email'] = 0;
+    }
+
+    return $infoArray['email'];
 }
 
 # Sends user information to the database
 function insertData($db, $username, $password, $email) {
 
-	$sql = "INSERT INTO users (username, password, email, userlevel)
-			VALUES (:username, :password, :email, 1);";
+    $sql = "INSERT INTO users (username, password, email, userlevel)
+            VALUES (:username, :password, :email, 1);";
 
-	$res = $db->prepare($sql);
+    $res = $db->prepare($sql);
 
-	$tobeinserted = array(
-			':username' => $username,
-			':password' => $password,
-			':email' => $email
-	);
+    $tobeinserted = array(
+            ':username' => $username,
+            ':password' => $password,
+            ':email' => $email
+    );
 
-	 if ($res->execute($tobeinserted)) {
-	 	
-	 }	else {
-	 }
-	
-	$sql = "INSERT INTO room (room_ID, user_ID)
-			VALUES (LAST_INSERT_ID(), LAST_INSERT_ID());";
-	$db->query($sql);
+     if ($res->execute($tobeinserted)) {
+
+     }  else {
+     }
+
+    $sql = "INSERT INTO room (room_ID, user_ID)
+            VALUES (LAST_INSERT_ID(), LAST_INSERT_ID());";
+    $db->query($sql);
 }
 
 
