@@ -1,5 +1,14 @@
 <?php
-
+	session_start();
+	
+	if ($_SESSION["admin"] == false) {
+		header("location:../index.php");
+	}	
+	
+	if(!isset($_SESSION["logged_in"])) {
+		header("location:../mainpage.html");
+	}
+	
     // Database config
     require_once('../conf/config.php');
 

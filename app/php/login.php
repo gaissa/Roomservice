@@ -32,7 +32,7 @@ try {
 # Validates user information
 function validateData($db, $username, $password) {
 
-    $res = $db->prepare("SELECT ID, username, password FROM users
+    $res = $db->prepare("SELECT ID, username, password, userlevel FROM users
             WHERE username= :username");
 
     $res->bindParam(':username', $username, PDO::PARAM_STR);
@@ -43,7 +43,12 @@ function validateData($db, $username, $password) {
     if($res->execute() && $row = $res->fetch()) {
 
         if($row['password'] === $password) {
-
+			if ($row['userlevel'] == 2) {
+				$_SESSION["admin"] = true;
+			} else {
+				$_SESSION["admin"] = false;
+			}
+			
             $_SESSION["logged_in"] = true;
             $_SESSION["id"] = $row['ID'];
             $validated = true;
