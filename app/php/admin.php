@@ -147,7 +147,7 @@
         <tr>
             <td>
 
-                <form name="form1" method="post" action="">
+                <form name="form2" method="post" action="">
                 <table border="8" bgcolor="#000">
 
                 <tr>
