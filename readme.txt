@@ -1,8 +1,7 @@
+Roomservice 
+===========
 
-Roomservice (a working title)
-=============================
-
-A reservation system (currently under development).
+A room reservation system.
 
 Created with:
 
