@@ -18,7 +18,7 @@ var isReserved;
 
         $.ajax( {
             type: 'POST',
-            url: 'xml/db_to_xml.php',
+            url: 'xml/reservations_to_rss.php',
             async: false,
             success: function(result){
                     showDialogRSS();
