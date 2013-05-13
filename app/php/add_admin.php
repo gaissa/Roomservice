@@ -15,36 +15,42 @@
     $salasana=$_POST['salasana'];
 
     $check = checkData($id, $taso, $nimi, $email, $salasana);
+    $mail = validateEmail($email);
 
-    if ($check) {
+    if (($check) && ($mail)) {
 
         $sql="INSERT INTO users (ID, username, password, email, userlevel) VALUES ('$id','$nimi','$salasana','$email',$taso)";
 
         if (!mysqli_query($con,$sql))
         {
-          die('Error: ' . mysqli_error($con));
+            header('Location: admin.php'); 
         }
-
-        echo "1 record added";
 
         mysqli_close($con);
 
-        $url = 'admin.php';
-        echo '<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+        header('Location: admin.php'); 
     }
 
     else {
 
-        $url = 'admin.php';
-        echo '<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+        header('Location: admin.php'); 
+    }
+    
+    function validateEmail($email) {
+        return filter_var($email, FILTER_VALIDATE_EMAIL);
     }
 
     # validate input
     function checkData($id, $taso, $nimi, $email, $salasana) {
 
-        if ( ($id != '') && ($taso != '') && ($nimi != '') && ($email != '') && ($salasana != '') &&
-        ( (is_numeric($id)) && (!strstr($id, '.')) ) &&
-        ( (is_numeric($taso)) && (!strstr($taso, '.')) ) ) {
+        if (
+           ($id != '') && ($taso != '') && ($nimi != '') && ($email != '') &&
+           ($salasana != '') &&
+           (strlen($id) < 1000) && (strlen($taso) < 2) && (strlen($nimi) < 21) &&
+           (strlen($email) < 51) && (strlen($salasana) < 41) &&
+           ( (is_numeric($id)) && (!strstr($id, '.')) ) &&
+           ( (is_numeric($taso)) && (!strstr($taso, '.')) )
+           ) {
 
             $validated = true;
         }

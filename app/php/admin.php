@@ -122,9 +122,9 @@
     
             Id <input type="text" name="id">
             Käyttäjätaso <input type="text" name = "taso"> 
-            nimi <input type="text" name = "nimi">
-            email <input type="text" name = "email">
-            salasana <input type="text" name = "salasana">
+            Nimi <input type="text" name = "nimi">
+            Email <input type="text" name = "email">
+            Salasana <input type="text" name = "salasana">
         
             <input align="left" type="submit" value="Lisää">    
         
