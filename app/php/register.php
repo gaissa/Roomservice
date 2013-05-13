@@ -81,10 +81,6 @@ function insertData($db, $username, $password, $email) {
 
      }  else {
      }
-
-    $sql = "INSERT INTO room (room_ID, user_ID)
-            VALUES (LAST_INSERT_ID(), LAST_INSERT_ID());";
-    $db->query($sql);
 }
 
 

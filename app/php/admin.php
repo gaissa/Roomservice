@@ -153,7 +153,7 @@
                 <tr>
 
                     <td width="40" align="center" bgcolor="#BBB">#</td>
-                    <td colspan="3" bgcolor="#BBB"><strong>Id</strong></td>
+                    <td colspan="3" bgcolor="#BBB"><strong>Käyttäjä Id</strong></td>
                     <td bgcolor="#BBB"><strong>Huoneen tunnus</strong></td>
 
                 </tr>
@@ -168,7 +168,7 @@
 
                     </td>
 
-                    <td colspan="3" bgcolor="#FFF"><?php echo $rows['ID']; ?></td>
+                    <td colspan="3" bgcolor="#FFF"><?php echo $rows['user_ID']; ?></td>
                     <td bgcolor="#FFF"><?php echo $rows['room_ID']; ?></td>
 
                 </tr>
@@ -209,7 +209,7 @@
     
         <form name="add2" action="admin_add_room.php" method="post"> 
     
-            Id <input type="text" name="id2">
+           Käyttäjän Id <input type="text" name="id2">
             Tunnus <input type="text" name="tunnus">             
         
             <input align="left" type="submit" value="Lisää">    

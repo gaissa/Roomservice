@@ -15,7 +15,7 @@
 
     if (($check)) {
 
-        $sql="INSERT INTO room (ID, user_ID, room_ID) VALUES ('$id2','$id2','$tunnus')";
+        $sql="INSERT INTO room (user_ID, room_ID) VALUES ('$id2','$tunnus')";
 
         if (!mysqli_query($con,$sql))
         {
