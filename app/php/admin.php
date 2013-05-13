@@ -1,14 +1,15 @@
 <?php
-	session_start();
-	
-	if ($_SESSION["admin"] == false) {
-		header("location:../index.php");
-	}	
-	
-	if(!isset($_SESSION["logged_in"])) {
-		header("location:../mainpage.html");
-	}
-	
+
+    session_start();
+
+    if ($_SESSION["admin"] == false) {
+        header("location:../index.php");
+    }
+
+    if(!isset($_SESSION["logged_in"])) {
+        header("location:../mainpage.html");
+    }
+
     // Database config
     require_once('../conf/config.php');
 
@@ -37,114 +38,117 @@
     <link href="../css/normalize.css" rel="stylesheet" type="text/css"/>
     <link href="../css/datepicker.css" rel="stylesheet" type="text/css"/>
     <link href="../css/adminstyle.css" rel="stylesheet" type="text/css"/>
-	<script type="text/javascript" src="../js/index.js"></script>
-	
+    <script type="text/javascript" src="../js/index.js"></script>
+
 </head>
 
 <body>
 
     <div id="rss" class="logout"><a href="../admin_index.php">Takaisin</a></div>
-	<div id="rooms" class="logout"><a href="#">Huoneet XML</a></div>
-	<div id="users" class="logout"><a href="#">Käyttäjät XML</a></div>
-    
+    <div id="rooms" class="logout"><a href="#">Huoneet XML</a></div>
+    <div id="users" class="logout"><a href="#">Käyttäjät XML</a></div>
+
     <div id="wrap_first">
-    <table border="0" cellspacing="1" cellpadding="0">
-        <tr>
-            <td>
 
-                <form name="form1" method="post" action="">
-                <table border="8" cellpadding="3" cellspacing="4" bgcolor="#000">
+        <table border="0">
+            <tr>
+                <td>
 
-                <tr>
+                    <form name="form1" method="post" action="">
+                    <table border="8" bgcolor="#000">
 
-                    <td bgcolor="#AAA">&nbsp;</td>
-                    <td colspan="5" bgcolor="#AAA"><strong><h2>Käyttäjät</h2></strong> </td>
+                    <tr>
 
-                </tr>
+                        <td bgcolor="#AAA">&nbsp;</td>
+                        <td colspan="5" bgcolor="#AAA"><strong><h2>Käyttäjät</h2></strong> </td>
 
-                <tr>
+                    </tr>
 
-                    <td width="40" align="center" bgcolor="#BBB">#</td>
-                    <td bgcolor="#BBB"><strong>Id</strong></td>
-                    <td bgcolor="#BBB"><strong>Käyttäjätaso</strong></td>
-                    <td bgcolor="#BBB"><strong>Nimi</strong></td>
-                    <td bgcolor="#BBB"><strong>Email</strong></td>
-                    <td bgcolor="#BBB"><strong>Salasana (SHA-1)</strong></td>
+                    <tr>
 
-                </tr>
+                        <td width="40" align="center" bgcolor="#BBB">#</td>
+                        <td bgcolor="#BBB"><strong>Id</strong></td>
+                        <td bgcolor="#BBB"><strong>Käyttäjätaso</strong></td>
+                        <td bgcolor="#BBB"><strong>Nimi</strong></td>
+                        <td bgcolor="#BBB"><strong>Email</strong></td>
+                        <td bgcolor="#BBB"><strong>Salasana (SHA-1)</strong></td>
 
-                <?php while ($rows = mysql_fetch_array($result)): ?>
+                    </tr>
 
-                <tr>
+                    <?php while ($rows = mysql_fetch_array($result)): ?>
 
-                    <td align="center" bgcolor="#FFFFFF">
+                    <tr>
 
-                    <input name="need_delete[<?php echo $rows['ID']; ?>]" type="checkbox" id="checkbox[<?php echo $rows['ID']; ?>]" value="<?php echo $rows['ID']; ?>">
+                        <td align="center" bgcolor="#FFFFFF">
 
-                    </td>
+                        <input name="need_delete[<?php echo $rows['ID']; ?>]" type="checkbox" id="checkbox[<?php echo $rows['ID']; ?>]" value="<?php echo $rows['ID']; ?>">
 
-                    <td bgcolor="#FFF"><?php echo $rows['ID']; ?></td>
-                    <td bgcolor="#FFF"><?php echo htmlspecialchars($rows['userlevel']); ?></td>
-                    <td bgcolor="#FFF"><?php echo htmlspecialchars($rows['username']); ?></td>
-                    <td bgcolor="#FFF"><?php echo htmlspecialchars($rows['email']); ?></td>
-                    <td bgcolor="#FFF"><?php echo htmlspecialchars($rows['password']); ?></td>
+                        </td>
 
-                </tr>
+                        <td bgcolor="#FFF"><?php echo $rows['ID']; ?></td>
+                        <td bgcolor="#FFF"><?php echo htmlspecialchars($rows['userlevel']); ?></td>
+                        <td bgcolor="#FFF"><?php echo htmlspecialchars($rows['username']); ?></td>
+                        <td bgcolor="#FFF"><?php echo htmlspecialchars($rows['email']); ?></td>
+                        <td bgcolor="#FFF"><?php echo htmlspecialchars($rows['password']); ?></td>
 
-                <?php endwhile; ?>
+                    </tr>
 
-                <tr>
+                    <?php endwhile; ?>
 
-                    <td colspan="6" align="left" bgcolor="#555">
-                    <input name="delete" type="submit" id="delete" value="Poista"></td>
-                </tr>                
+                    <tr>
 
-                <?php
+                        <td colspan="6" align="left" bgcolor="#555">
+                        <input name="delete" type="submit" id="delete" value="Poista"></td>
+                    </tr>
 
-                    // Check if delete button is active
-                    if (!empty($_POST['delete'])) {
+                    <?php
 
-                        foreach ($_POST['need_delete'] as $id => $value) {
+                        // Check if delete button is active
+                        if (!empty($_POST['delete'])) {
 
-                            $sql = "DELETE FROM users WHERE ID='$value'";
-                            mysql_query($sql);
+                            foreach ($_POST['need_delete'] as $id => $value) {
+
+                                $sql = "DELETE FROM users WHERE ID='$value'";
+                                mysql_query($sql);
+                            }
+
+                            echo '<meta http-equiv="refresh" content="0;URL=admin.php">';
                         }
+                    ?>
 
-                        echo '<meta http-equiv="refresh" content="0;URL=admin.php">';
-                    }
-                ?>
+                    </table>
+                    </form>
+                </td>
 
-                </table>
-                </form>
-            </td>
-            
-        </tr>
-        
-    </table>
+            </tr>
+
+        </table>
+
     </div>
+
     <div id="wrap">
-    
-        <form name="add" action="admin_add_user.php" method="post"> 
-    
+
+        <form name="add" action="admin_add_user.php" method="post">
+
             Id <input type="text" name="id">
-            Käyttäjätaso <input type="text" name = "taso"> 
+            Käyttäjätaso <input type="text" name = "taso">
             Nimi <input type="text" name = "nimi">
             Email <input type="text" name = "email">
             Salasana <input type="password" name = "salasana">
-        
-            <input align="left" type="submit" value="Lisää">    
-        
-        </form>   
-        
-     </div>
-               
 
-    <table border="0" cellspacing="1" cellpadding="0">
+            <input align="left" type="submit" value="Lisää">
+
+        </form>
+
+     </div>
+
+
+    <table border="0">
         <tr>
             <td>
 
                 <form name="form1" method="post" action="">
-                <table border="8" cellpadding="3" cellspacing="4" bgcolor="#000">
+                <table border="8" bgcolor="#000">
 
                 <tr>
 
@@ -207,18 +211,18 @@
             </td>
         </tr>
     </table>
-    
+
     <div id="wrap">
-    
-        <form name="add2" action="admin_add_room.php" method="post"> 
-    
+
+        <form name="add2" action="admin_add_room.php" method="post">
+
            Käyttäjän Id <input type="text" name="id2">
-            Tunnus <input type="text" name="tunnus">             
-        
-            <input align="left" type="submit" value="Lisää">    
-        
-        </form>   
-        
+            Tunnus <input type="text" name="tunnus">
+
+            <input align="left" type="submit" value="Lisää">
+
+        </form>
+
      </div>
 
 </body>
