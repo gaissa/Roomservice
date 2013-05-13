@@ -43,7 +43,8 @@
 <body>
 
     <div id="rss" class="logout"><a href="../admin_index.php">Takaisin</a></div>
-
+    
+    <div id="wrap_first">
     <table border="0" cellspacing="1" cellpadding="0">
         <tr>
             <td>
@@ -117,10 +118,10 @@
         </tr>
         
     </table>
-    
+    </div>
     <div id="wrap">
     
-        <form name="add" action="add_admin.php" method="post"> 
+        <form name="add" action="admin_add_user.php" method="post"> 
     
             Id <input type="text" name="id">
             Käyttäjätaso <input type="text" name = "taso"> 
@@ -206,10 +207,10 @@
     
     <div id="wrap">
     
-        <form name="add" action="#" method="post"> 
+        <form name="add2" action="admin_add_room.php" method="post"> 
     
-            Id <input type="text" name="id">
-            Tunnus <input type="text" name = "tunnus">             
+            Id <input type="text" name="id2">
+            Tunnus <input type="text" name="tunnus">             
         
             <input align="left" type="submit" value="Lisää">    
         
