@@ -13,13 +13,14 @@
     $nimi=$_POST['nimi'];
     $email=$_POST['email'];
     $salasana=$_POST['salasana'];
-
-    $check = checkData($id, $taso, $nimi, $email, $salasana);
+	$sha1salasana = sha1($salasana);
+	
+    $check = checkData($id, $taso, $nimi, $email, $sha1salasana);
     $mail = validateEmail($email);
 
     if (($check) && ($mail)) {
 
-        $sql="INSERT INTO users (ID, username, password, email, userlevel) VALUES ('$id','$nimi','$salasana','$email',$taso)";
+        $sql="INSERT INTO users (ID, username, password, email, userlevel) VALUES ('$id','$nimi','$sha1salasana','$email',$taso)";
 
         if (!mysqli_query($con,$sql))
         {
@@ -42,13 +43,13 @@
     }
 
     # validate input
-    function checkData($id, $taso, $nimi, $email, $salasana) {
+    function checkData($id, $taso, $nimi, $email, $sha1salasana) {
 
         if (
            ($id != '') && ($taso != '') && ($nimi != '') && ($email != '') &&
-           ($salasana != '') &&
+           ($sha1salasana != '') &&
            (strlen($id) < 1000) && (strlen($taso) < 2) && (strlen($nimi) < 21) &&
-           (strlen($email) < 51) && (strlen($salasana) < 41) &&
+           (strlen($email) < 51) && (strlen($sha1salasana) < 41) &&
            ( (is_numeric($id)) && (!strstr($id, '.')) ) &&
            ( (is_numeric($taso)) && (!strstr($taso, '.')) )
            ) {

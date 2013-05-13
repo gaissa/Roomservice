@@ -82,8 +82,6 @@ function validateData(dataArray) {
 			data: { 'dataArray': JSON.stringify(dataArray)},
 			dataType: 'json',
 			success: function(data) {
-			  console.log("DATA" + data.username);
-			  console.log("DATA" + data.email);
 			  userExists = data.username;
 			  emailExists  = data.email;
 			  
@@ -91,20 +89,17 @@ function validateData(dataArray) {
 					sendData(dataArray);
 			  } else if (userExists === 1) {
 					$("label#name_error").text("Käyttäjänimi on jo käytössä");
-					$("label#name_error").show();
-					console.log('user exists');					
+					$("label#name_error").show();				
 			  } 
 			  if (emailExists === 1) {
 					$("label#email_error").text("Sähköpostiosoite on jo käytössä");
 					$("label#email_error").show();
-					console.log('email exists');
 			  } 
 			  if ((userExists === 1) && (emailExists === 1)) {
 					$("label#name_error").text("Käyttäjänimi on jo käytössä");
 					$("label#name_error").show();
 					$("label#email_error").text("Sähköpostiosoite on jo käytössä");
 					$("label#email_error").show();
-					console.log ('user and email exist');
 			  }
 			 return false;
 			}
@@ -119,9 +114,6 @@ function sendData(dataArray) {
 			data: { 'dataArray': JSON.stringify(dataArray)},
 			dataType: 'json',
 			success: function(data) {
-				console.log("DATA" + data);
-			  console.log("DATA" + data.username);
-			  console.log("DATA" + data.email);
 			  userExists = data.username;
 			  emailExists  = data.email;
 			  $('div#reg_panel').hide();	
@@ -169,12 +161,9 @@ $(document).ready(function() {
 			} else if (password1 === password2) {
 				var hash = CryptoJS.SHA1(password1);
 				password = hash.toString(CryptoJS.enc.Hex);
-				console.log(password);
 			}						  
 			
-			dataArray = {username: username, password: password, email: email};
-			
-			console.log(username + "," + password1 + ","  + password2 + "," + email	);
+			dataArray = {username: username, password: password, email: email};			
 			
 			if ((user == true) && (pw1 == true) && (pw2 == true) && (emaill == true)) {		
 				validateData(dataArray);
@@ -194,13 +183,11 @@ $(document).ready(function() {
 			complete_log();
 		}	
 		if ($("div#log_panel").is(':hidden')) {
-			console.log('hid');
 			$("div#log_panel").show('normal');
 				complete_log();
 		}
 			
 		if ($("div#reg_panel").is(':visible')) {
-			console.log('log');
 			$("div#log_panel").animate(
 				{height:"142"}, {duration:300}, {done:hide_reg()}
 			);					

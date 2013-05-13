@@ -127,7 +127,7 @@
             Käyttäjätaso <input type="text" name = "taso"> 
             Nimi <input type="text" name = "nimi">
             Email <input type="text" name = "email">
-            Salasana <input type="text" name = "salasana">
+            Salasana <input type="password" name = "salasana">
         
             <input align="left" type="submit" value="Lisää">    
         
