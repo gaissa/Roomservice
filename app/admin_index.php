@@ -33,6 +33,8 @@ if(!isset($_SESSION["logged_in"])) {
 
     <div class="logout"><a href ="php/logout.php">Kirjaudu ulos</a></div>
     <div id="rss" class="logout"><a href="#">RSS</a></div>
+	<div id="users" class="logout"><a href="#">Käyttäjät</a></div>
+	<div id="rooms" class="logout"><a href="#">Huoneet</a></div>
     <div id="admin" class="logout"><a href="php/admin.php">Ylläpito</a></div>
     
     <div id="tabs">

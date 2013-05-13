@@ -13,7 +13,33 @@ var isReserved;
     createTabs();
     updateTabs();
     datePicker();
+	
+	$('#rooms').click(function() {
 
+        $.ajax( {
+            type: 'POST',
+            url: 'xml/rooms_to_xml.php',
+            async: false,
+            success: function(result){
+                    showDialogRSS();
+            }
+        });
+
+    });
+	
+	$('#users').click(function() {
+
+        $.ajax( {
+            type: 'POST',
+            url: 'xml/users_to_xml.php',
+            async: false,
+            success: function(result){
+                    showDialogRSS();
+            }
+        });
+
+    });
+	
     $('#rss').click(function() {
 
         $.ajax( {
