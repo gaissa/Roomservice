@@ -5,7 +5,7 @@ var index;
 var isReserved;
 
     $(document).ready(function() {
-    var rooms = getUserRooms(userID);
+    var rooms = getUserRooms();
 
     // ID of currently selected room
     var currentRoom = rooms[0];
@@ -201,14 +201,13 @@ var isReserved;
                     console.log("Clicked tab " + index + ", room_ID = " + rooms[index]);
     }
 
-    function getUserRooms(userID) {
+    function getUserRooms() {
 
         var roomArray;
 
         $.ajax({
             type: 'POST',
             url: 'php/getuserrooms.php',
-            data: {userid: userID},
             dataType: 'json',
             async: false,
             success: function(result){
