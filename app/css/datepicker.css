@@ -38,14 +38,15 @@ textarea#restextarea {
 
 /* DatePicker Container */
 .ui-datepicker {
-    width: 90%;
-    height: auto;
+    width: 100%;
+    height: auto;   
     margin: 5px auto 0;
     text-align: center;
     font: 32pt sans-serif;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+    min-width:920px;
 }
 
 /* DatePicker Links */
@@ -321,30 +322,35 @@ textarea#restextarea {
 
 /* TAB container and such... */
 .ui-tabs {
+
 }
 
 /* The navigation bar */
 .ui-tabs .ui-tabs-nav {
+   
     margin: 0;
-    padding: 4em;
+    padding: 4.8em;
     margin-left:32px;
+    margin-bottom: 48px;
+    min-width: 800px;
+    
 }
 
 /* The list style of the navigation bar and tabs */
-.ui-tabs .ui-tabs-nav li {
+.ui-tabs .ui-tabs-nav li {    
     list-style: none;
     float: left;
     position: relative;
     top: 0;
     margin: 1px 1em 0 0;
     border-bottom-width: 0;
-    padding: 0;
+    padding: 4px;
     white-space: nowrap;
 }
 
 /* TAB link style */
 .ui-tabs .ui-tabs-nav li a {
-    font: 32pt sans-serif;
+    font: 21pt sans-serif;
     color: #555;
     background: #000;   
     padding: .1em 1em;
@@ -353,7 +359,7 @@ textarea#restextarea {
 
 /* TAB link style */
 .ui-tabs .ui-tabs-nav li a:hover {
-    font: 32pt sans-serif;
+    font: 21pt sans-serif;
     color: #fff;
     background: #000;   
     padding: .1em 1em;
@@ -387,7 +393,7 @@ textarea#restextarea {
 }
 
 /* COMMENT HERE */
-.ui-tabs .ui-tabs-panel {
+.ui-tabs .ui-tabs-panel {    
     display: block;
     border-width: 0;
     padding: 1em 1.4em;
