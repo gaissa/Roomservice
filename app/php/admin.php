@@ -156,14 +156,14 @@
                 <tr>
 
                     <td bgcolor="#AAA">&nbsp;</td>
-                    <td colspan="4" bgcolor="#AAA"><strong><h2>Huoneet</h2></strong> </td>
+                    <td bgcolor="#AAA"><strong><h2>Huoneet</h2></strong> </td>
 
                 </tr>
 
                 <tr>
 
                     <td width="40" align="center" bgcolor="#BBB">#</td>
-                    <td colspan="3" bgcolor="#BBB"><strong>Käyttäjä Id</strong></td>
+                   
                     <td bgcolor="#BBB"><strong>Huoneen tunnus</strong></td>
 
                 </tr>
@@ -178,7 +178,7 @@
 
                     </td>
 
-                    <td colspan="3" bgcolor="#FFF"><?php echo $rows['user_ID']; ?></td>
+                   
                     <td bgcolor="#FFF"><?php echo $rows['room_ID']; ?></td>
 
                 </tr>
@@ -187,7 +187,7 @@
 
                 <tr>
 
-                    <td colspan="5" align="left" bgcolor="#555">
+                    <td colspan="2" align="left" bgcolor="#555">
                     <input name="delete" type="submit" id="delete" value="Poista"></td>
 
                 </tr>
@@ -222,9 +222,8 @@
     <div id="wrap">
 
         <form name="add2" action="admin_add_room.php" method="post">
-
-            Käyttäjän Id <input type="text" name="id2">
-            Tunnus <input type="text" name="tunnus">
+           
+            Huoneen tunnus <input type="text" name="tunnus">
 
             <input align="left" type="submit" value="Lisää">
 

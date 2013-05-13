@@ -8,36 +8,34 @@
       echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
 
-    $id2=$_POST['id2'];
-    $tunnus=$_POST['tunnus'];    
+    $tunnus=$_POST['tunnus'];
 
-    $check = checkData($id2, $tunnus);    
+    $check = checkData($tunnus);
 
     if (($check)) {
 
-        $sql="INSERT INTO room (user_ID, room_ID) VALUES ('$id2','$tunnus')";
+        $sql="INSERT INTO room (room_ID) VALUES ('$tunnus')";
 
         if (!mysqli_query($con,$sql))
         {
-            header('Location: admin.php#wrap'); 
+            header('Location: admin.php#wrap');
         }
 
         mysqli_close($con);
 
-        header('Location: admin.php#wrap'); 
+        header('Location: admin.php#wrap');
     }
 
     else {
 
-        header('Location: admin.php#wrap'); 
+        header('Location: admin.php#wrap');
     }
 
-    function checkData($id2, $tunnus) {
+    function checkData($tunnus) {
 
         if (
-           ($id2 != '') && ($tunnus != '') &&           
-           (strlen($id2) < 1000) && (strlen($tunnus) < 1000) &&
-           ( (is_numeric($id2)) && (!strstr($id2, '.')) ) &&
+           ($tunnus != '') &&
+           (strlen($tunnus) < 1000) &&
            ( (is_numeric($tunnus)) && (!strstr($tunnus, '.')) )
            ) {
 
