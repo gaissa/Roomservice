@@ -1,5 +1,7 @@
 body {
     background: url('../img/darkdenim3.png') repeat 0 0 #555;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
 }
 
 table {

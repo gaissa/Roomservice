@@ -42,6 +42,8 @@
 
 <body>
 
+    <div id="rss" class="logout"><a href="../admin_index.php">Takaisin</a></div>
+
     <table border="0" cellspacing="1" cellpadding="0">
         <tr>
             <td>
