@@ -110,6 +110,9 @@
 
                                 $sql = "DELETE FROM users WHERE ID='$value'";
                                 mysql_query($sql);
+
+                                $sql666 = "DELETE FROM reservations WHERE user_ID='$value'";
+                                mysql_query($sql666);
                             }
 
                             echo '<meta http-equiv="refresh" content="0;URL=admin.php">';
@@ -171,7 +174,7 @@
 
                     <td align="center" bgcolor="#FFFFFF">
 
-                    <input name="need_delete[<?php echo $rows['ID']; ?>]" type="checkbox" id="checkbox[<?php echo $rows['ID']; ?>]" value="<?php echo $rows['ID']; ?>">
+                    <input name="need_delete[<?php echo $rows['room_ID']; ?>]" type="checkbox" id="checkbox[<?php echo $rows['room_ID']; ?>]" value="<?php echo $rows['room_ID']; ?>">
 
                     </td>
 
@@ -194,10 +197,14 @@
                     // Check if delete button is active
                     if (!empty($_POST['delete'])) {
 
-                        foreach ($_POST['need_delete'] as $id => $value) {
+                        foreach ($_POST['need_delete'] as $room_ID => $value) {
 
-                            $sql2 = "DELETE FROM room WHERE ID='$value'";
+                            $sql2 = "DELETE FROM room WHERE room_ID='$value'";
                             mysql_query($sql2);
+
+                            $sql666 = "DELETE FROM reservations WHERE room_ID='$value'";
+                            mysql_query($sql666);
+
                         }
 
                         echo '<meta http-equiv="refresh" content="0;URL=admin.php">';
@@ -216,7 +223,7 @@
 
         <form name="add2" action="admin_add_room.php" method="post">
 
-           Käyttäjän Id <input type="text" name="id2">
+            Käyttäjän Id <input type="text" name="id2">
             Tunnus <input type="text" name="tunnus">
 
             <input align="left" type="submit" value="Lisää">

@@ -1,4 +1,5 @@
 body {
+
     background: url('../img/darkdenim3.png') repeat 0 0 #555;
     margin-bottom: 40px;
     padding-bottom: 40px;
@@ -6,24 +7,24 @@ body {
 
 table {
 
-padding: auto;
-margin: auto;
-margin-top: 14px;
-width:100%;
+    padding: auto;
+    margin: auto;
+    margin-top: 14px;
+    width:100%;
 
 }
 
 input {
 
-padding: 4px;
-margin: 4px;
+    padding: 4px;
+    margin: 4px;
 
 }
 
 td {
 
-padding: 8px;
-margin: 8px;
+    padding: 8px;
+    margin: 8px;
 
 }
 
