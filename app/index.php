@@ -6,6 +6,10 @@ if(!isset($_SESSION["logged_in"])) {
 	header("location:mainpage.html");
 } 
 
+if ($_SESSION["admin"] == true) {
+		header("location:admin_index.php");
+	}
+
 ?>
 
 <!DOCTYPE html>

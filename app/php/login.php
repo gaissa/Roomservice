@@ -13,16 +13,8 @@ try {
 
     $isUserValid = validateData($db, $usernm, $sha1pass);
 
-    if (($isUserValid === true) && ($usernm != 'admin')) {
+    if ($isUserValid === true) {
         header("location: ../index.php");
-    }
-
-    else if (($isUserValid === true) && ($usernm === 'admin')) {
-        header("location: ../admin_index.php");
-    }
-
-    else {
-        header("location: ../mainpage.html");
     }
 
 } catch (PDOException $e) {
