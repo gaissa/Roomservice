@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 #database config
 require_once('../conf/config.php');
 
@@ -18,40 +18,34 @@ try {
 function createXML($db) {
 	
 	$xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>";
-	$xml .= "<!DOCTYPE reservations [
+	$dtd = "<!DOCTYPE reservations [
 
-		<!ELEMENT reservations (reservation*)>
-		<!ELEMENT reservation (ID,start_time,duration,res_date,res_text,user_ID,room_ID)>
-		<!ELEMENT ID (#PCDATA)>
-		<!ELEMENT start_time (#PCDATA)>
-		<!ELEMENT duration (#PCDATA)>
-		<!ELEMENT res_date (#PCDATA)>
-		<!ELEMENT res_text (#PCDATA)>
-		<!ELEMENT user_ID (#PCDATA)>
-		<!ELEMENT room_ID (#PCDATA)>
+		<!ELEMENT rss (item*)>
+		<!ELEMENT item (title,link,description)>
+		<!ELEMENT title (#PCDATA)>
+		<!ELEMENT link (#PCDATA)>
+		<!ELEMENT description (#PCDATA)>
 
 	]>";
-	
-	$xml .= "<reservations>";	
-	$result = $db->query("SELECT * FROM reservations");
+	$xml .= $dtd;
+	$xml .= "<rss>";	
+	$result = $db->query("SELECT * FROM reservations INNER JOIN users ON reservations.user_ID = users.ID");
 
 	while($row = $result->fetch(PDO::FETCH_ASSOC)) {
 		#main tag
-		$xml .= "<reservation>";
-		
-		foreach($row as $key => $value) {
-			#first tag
-			$xml .= "<$key>";
-			#sql data
-			$xml .= $value;
-			#end tag
-			$xml .= "</$key>";
-		}
-		#end tag
-		$xml .= "</reservation>";
+		$xml .= "<item>";
+
+		$xml .= "<title>";
+		$xml .= $row['res_date'];
+		$xml .= "</title>";
+		$xml .= "<link>http://localhost/Roomservice/app/</link>";
+		$xml .= "<description>";
+		$xml .= $row['username'] . " has reserved room no. " . $row['room_ID'];
+		$xml .= "</description>";
+		$xml .= "</item>";
 	}
 		
-	$xml .= "</reservations>";
+	$xml .= "</rss>";
 	//header ("Content-Type:text/xml");
 	saveXML($xml);
 }
