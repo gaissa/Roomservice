@@ -18,7 +18,7 @@ var isReserved;
 
         $.ajax( {
             type: 'POST',
-            url: 'xml/rooms_to_xml.php',
+            url: '../xml/rooms_to_xml.php',
             async: false,
             success: function(result){
                     showDialogRSS();
@@ -31,7 +31,7 @@ var isReserved;
 
         $.ajax( {
             type: 'POST',
-            url: 'xml/users_to_xml.php',
+            url: '../xml/users_to_xml.php',
             async: false,
             success: function(result){
                     showDialogRSS();

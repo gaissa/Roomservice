@@ -37,12 +37,15 @@
     <link href="../css/normalize.css" rel="stylesheet" type="text/css"/>
     <link href="../css/datepicker.css" rel="stylesheet" type="text/css"/>
     <link href="../css/adminstyle.css" rel="stylesheet" type="text/css"/>
-
+	<script type="text/javascript" src="../js/index.js"></script>
+	
 </head>
 
 <body>
 
     <div id="rss" class="logout"><a href="../admin_index.php">Takaisin</a></div>
+	<div id="rooms" class="logout"><a href="#">Huoneet XML</a></div>
+	<div id="users" class="logout"><a href="#">Käyttäjät XML</a></div>
     
     <div id="wrap_first">
     <table border="0" cellspacing="1" cellpadding="0">

@@ -21,19 +21,19 @@ function createXML($db) {
 	$dtd = "<!DOCTYPE reservations [
 
 		<!ELEMENT rooms (room*)>
-		<!ELEMENT rooms (ID,room_ID,user_ID)>
+		<!ELEMENT room (ID,room_ID,user_ID)>
 		<!ELEMENT ID (#PCDATA)>
 		<!ELEMENT room_ID (#PCDATA)>
 		<!ELEMENT user_ID (#PCDATA)>
 
 	]>";
 	$xml .= $dtd;
-	$xml .= "<users>";	
+	$xml .= "<rooms>";	
 	$result = $db->query("SELECT * FROM users;");
 
 	while($row = $result->fetch(PDO::FETCH_ASSOC)) {
 		#main tag
-		$xml .= "<rooms>";
+		$xml .= "<room>";
 
 		$xml .= "<ID>";
 		$xml .= $row['ID'];
@@ -44,7 +44,7 @@ function createXML($db) {
 		$xml .= "<user_ID>";
 		$xml .= $row['user_ID'];
 		$xml .= "</user_ID>";
-		$xml .= "</rooms>";
+		$xml .= "</room>";
 	}
 		
 	$xml .= "</rooms>";
