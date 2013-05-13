@@ -31,11 +31,12 @@ margin: 8px;
    
     font-size: 14px; 
     padding-top: 32px;
+    padding-bottom: 48px;
     padding-left: 16px;
     margin-left: 15px;
     color: #fff;
     margin-right: 15px;    
-    height:82px;
+    height:auto;
     background-color: #555;   
     border: 0px solid white;
 }
