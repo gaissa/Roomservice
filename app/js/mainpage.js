@@ -7,6 +7,22 @@ var dataArray;
 // Password
 var password;
 
+// Show dialog
+function showDialog() {
+			
+			 $('#dialog').text("PASKAA");  
+			
+            $( "#dialog" ).dialog({
+
+                resizable: false,
+                height: 440,
+                width: 440,
+                modal: true,
+
+            });
+        
+   }
+
 // Checks if email is valid
 function validateEmail(epost) {
 

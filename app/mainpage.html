@@ -4,7 +4,8 @@
         <title>Roomservice</title>
         <link href="css/mainpagestyle.css" rel="stylesheet" />
         <script src="js/sha1.js"></script>
-        <script src="js/jquery-1.9.1.min.js"></script>
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <script src="js/mainpage.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -13,7 +14,8 @@
     <body>
     
     <div id="wrap1">
-        <img class="headerinfo" src="img/info.png" alt="Info"/>
+		<div id="dialog"></div>
+        <img class="headerinfo" src="img/info.png" alt="Info" onClick="showDialog()"/>
     </div>
 
     <div id="wrap2">
