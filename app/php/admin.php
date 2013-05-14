@@ -38,7 +38,8 @@
     <link href="../css/normalize.css" rel="stylesheet" type="text/css"/>
     <link href="../css/datepicker.css" rel="stylesheet" type="text/css"/>
     <link href="../css/adminstyle.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="../js/index.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<script type="text/javascript" src="../js/admin.js"></script>
 
 </head>
