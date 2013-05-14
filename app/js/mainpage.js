@@ -19,6 +19,14 @@ function showDialog() {
                 width: 440,
                 modal: true,
 
+                buttons: {
+
+                    // Must have at least one button for some reason?!
+                    "Sulje": function() {
+                        $(this).dialog().find('.ui-dialog-buttonpane button:last');
+                        $( this ).dialog( "close" );
+                    }
+                }
             });
         
    }
