@@ -55,6 +55,6 @@ function saveXML($xmlString) {
 	$dom->preserveWhiteSpace = FALSE;
 	$dom->loadXML($xmlString);
 	$dom->formatOutput = TRUE;
-	$dom->save("reservations.xml");
+	$dom->save("../rss/reservations.xml");
 }
 ?>

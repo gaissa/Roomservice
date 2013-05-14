@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE reservations [
+<!ELEMENT rooms (room)*>
+<!ELEMENT room (ID , room_ID , user_ID)>
+<!ELEMENT ID (#PCDATA)>
+<!ELEMENT room_ID (#PCDATA)>
+<!ELEMENT user_ID (#PCDATA)>
+]>
+<rooms>
+  <room>
+    <ID>10</ID>
+    <room_ID>3</room_ID>
+    <user_ID>1</user_ID>
+  </room>
+  <room>
+    <ID>11</ID>
+    <room_ID>14</room_ID>
+    <user_ID>1</user_ID>
+  </room>
+  <room>
+    <ID>12</ID>
+    <room_ID>4</room_ID>
+    <user_ID>4</user_ID>
+  </room>
+  <room>
+    <ID>13</ID>
+    <room_ID>15</room_ID>
+    <user_ID>3</user_ID>
+  </room>
+</rooms>

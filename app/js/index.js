@@ -110,8 +110,10 @@ var isReserved;
     function showDialogRSS() {
     
         $(function() {
-
-            $('#dialog-rss').text("RSS-TEKSTI ASETETAAN");            
+			
+			var locationURL = window.location.href;
+			var rssURL = locationURL.substring(0, locationURL.search("/app/"));
+            $('#dialog-rss').text(rssURL + "/app/rss/reservations.xml");            
 
             $( "#dialog-rss" ).dialog({
 
@@ -150,7 +152,7 @@ var isReserved;
             console.log("redarray" + m);
             var mewdate = m[2] + "/" + m[1] + "/" + m[0];
             console.log(mewdate);
-            eventss[new Date(mewdate)] = new Event("Varattu", "eventcolor2");
+            eventss[new Date(mewdate)] = new Event("asd", "eventcolor2");
         }
 
        for(var i = 0; i < rArray.length; i++) {
@@ -158,7 +160,7 @@ var isReserved;
 
             var newdate = n[2] + "/" + n[1] + "/" + n[0];
             console.log(newdate);
-            eventss[new Date(newdate)] = new Event("Oma varaus", "eventcolor1");
+            eventss[new Date(newdate)] = new Event("Varattu", "eventcolor1");
 
         }
 
@@ -293,7 +295,7 @@ var isReserved;
             // If someone else has reservations to that room, show ALERT
             } else if(data.isreserved === true && data.resuserid != userID) {
 
-                //alert("PVM ON VARATTU!");
+                alert("PVM ON VARATTU!");
 
             // If date has no reservations, show ADD button and DIALOG
             } else {
