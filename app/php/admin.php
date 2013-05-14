@@ -39,6 +39,7 @@
     <link href="../css/datepicker.css" rel="stylesheet" type="text/css"/>
     <link href="../css/adminstyle.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="../js/index.js"></script>
+	<script type="text/javascript" src="../js/admin.js"></script>
 
 </head>
 

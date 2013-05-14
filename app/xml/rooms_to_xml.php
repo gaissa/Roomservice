@@ -29,7 +29,7 @@ function createXML($db) {
 	]>";
 	$xml .= $dtd;
 	$xml .= "<rooms>";	
-	$result = $db->query("SELECT * FROM users;");
+	$result = $db->query("SELECT * FROM room;");
 
 	while($row = $result->fetch(PDO::FETCH_ASSOC)) {
 		#main tag

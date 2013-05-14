@@ -51,7 +51,7 @@ function createXML($db) {
 		$xml .= "</user>";
 	}
 		
-	$xml .= "</rss>";
+	$xml .= "</users>";
 	//header ("Content-Type:text/xml");
 	saveXML($xml);
 }

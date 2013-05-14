@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE reservations [
+<!ELEMENT users (user)*>
+<!ELEMENT user (ID , username , email , userlevel)>
+<!ELEMENT ID (#PCDATA)>
+<!ELEMENT username (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT userlevel (#PCDATA)>
+]>
+<users>
+  <user>
+    <ID>1</ID>
+    <username>seppo</username>
+    <email>seppo@seppo.fi</email>
+    <userlevel/>
+  </user>
+  <user>
+    <ID>2</ID>
+    <username>testi</username>
+    <email>testi@testi.com</email>
+    <userlevel>2</userlevel>
+  </user>
+  <user>
+    <ID>3</ID>
+    <username>esko</username>
+    <email>esko@esko.fi</email>
+    <userlevel>1</userlevel>
+  </user>
+  <user>
+    <ID>4</ID>
+    <username>jorma</username>
+    <email>jorma@jorma.fi</email>
+    <userlevel>1</userlevel>
+  </user>
+</users>
