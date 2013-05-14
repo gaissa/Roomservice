@@ -10,7 +10,13 @@ var password;
 // Show dialog
 function showDialog() {
 			
-			 $('#dialog').text("PASKAA");  
+			$("#dialog").parent().show();
+			$('#dialog').text("Tämä on huonevarausjärjestelmä, josta voit varata huoneita päiväkohtaisesti. Tämän sivun linkeistä voit rekisteröityä sekä tilin luotuasi kirjautua sisään järjestelmään varaamaan huoneita."); 
+			var newButton = $('<button>Sulje</button>');
+			$('#dialog').append(newButton);
+			
+			newButton.on('click', function() { $("#dialog").parent().hide(); });
+	$(function() {
 			
             $( "#dialog" ).dialog({
 
@@ -19,15 +25,10 @@ function showDialog() {
                 width: 440,
                 modal: true,
 
-                buttons: {
-
-                    // Must have at least one button for some reason?!
-                    "Sulje": function() {
-                        $(this).dialog().find('.ui-dialog-buttonpane button:last');
-                        $( this ).dialog( "close" );
-                    }
-                }
+                
             });
+			
+	});
         
    }
 
